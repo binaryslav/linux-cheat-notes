@@ -72,6 +72,10 @@ bc - to calculate ( more powerful one)
 
 *
 
+read -r  - read from std input( -r means that each backslash will be ignored)
+
+*
+
 exec - execute a command/file
 
 execlp - execute a file
