@@ -1,13 +1,13 @@
-CONTENTS: 
+CONTENTS:
 1)Bash
 2)Session
-3)Hardware and firmware 
+3)Hardware and firmware
 4)Package managers(rpm, atp, dpkg, pacman)
 5)File system and disk space
 6)Processes and memory
 7)Networking
-8)Vi and Vim  
-9)Other 
+8)Vi and Vim
+9)Other
 
 
 *********/ BASH /*********
@@ -86,22 +86,22 @@ test -f (file )/ -d (dir) - to test IF a file is a file or dir
 
 *
 
-info 
+info commandName 
 
-man 
+man commandName
 
 --help / -h
 
-whatis 
+whatis commandName
 
-apropos [keyword]
+apropos [keyword] - search for a command/service by keywords or name (into man pages)
 
 
-locate file 
+locate fileName
 
 *
 
-alias 
+alias (show all alias)
 
 alias neWname='someCommand'
 
@@ -123,11 +123,11 @@ which commandName - show a full path to binaries of the command
 
 *
 
-clear
+clear - clear a terminal screen
 
 *
 
-history
+history 
 
 * 
 
@@ -137,11 +137,14 @@ dmesg - display all dignostic messages from tty1 into a current treminal which i
 
 *NAME OF THE COMMAND* -run a command bin-file (firefox for example) 
 
-*NAME OF THE COMMAND* & - run a command in background 
+*NAME OF THE COMMAND* & - run a command in a background 
 
-%n & - Перевод задания в фоновый режим без его отмены
 
-%n - Перевод фонового задания в приоритетный режим
+    
+
+%jobName & - put a job in background  (not stopping it)
+
+%jobName - put a job in foreground 
 
 *
 
@@ -289,7 +292,7 @@ cat /dev/null > file.txt - purge file's content
 
 *
 
-tac 
+tac - 
 
 *
 
@@ -307,7 +310,7 @@ less seasonal/spring.csv seasonal/summer.csv - to view those two files in that o
 
 *
 
-sort -n -r
+sort -n -r 
 
 sort < file > newSortedFile ; mv newSortedFile file 
 
@@ -399,7 +402,7 @@ sudo SuperUser execution for an entering comand (1)
 
 sudo su (after that all commands will be execute from SUPERUSER/mounted(?))
 
-sudo !! (adding status of SUDO for commands which lay bellow)
+sudo !! ( execute next commands as root )
 
 
  *
@@ -410,9 +413,9 @@ echo "$(tput setaf 1)Red text $(tput setab 7)and white background$(tput sgr 0)" 
 
 *
 
-login name 
+login username 
 
-logout name(iarosalvb as the example ) - leave the current session  
+logout username - leave the current session  
 
 *
 
@@ -441,7 +444,7 @@ usermod - used for changing modifying user information
  whoami - displays who are you logged in as 
 
 * 
- passwd - сменить пароль
+ passwd - set/change password 
 
 *
 
@@ -457,7 +460,7 @@ chown - change the owner of a file or folder
 
 * 
 
- uptime 
+ uptime - current session duration 
 
 * 
 
@@ -494,7 +497,7 @@ timedatectl - Query and change the System clock
 
 * 
 
- lsmod - вывести загруженные модули ядра
+ lsmod - shows which loadable kernel modules are currently loaded
 
  insmod - download mod into the memory by adding to the kernel 
 
@@ -520,15 +523,15 @@ dpkg-reconfigure locales
 
 *
 
-shutdown -h now - выключить систему
+shutdown -h now - immediately shutdown the system
 
-shutdown -h 16:30 & - запланированное выключение системы на 16 часов 30 минут
+shutdown -h 16:30 & - schedules the system for shutdown at 16:30
 
-shutdown -h +10 - shuting down the system after 10 min
+shutdown -h +10 - shutting down the system after 10 min
 
-shutdown -c - отмена запланированного выключения системы
+shutdown -c - to cancel scheduled shutdown
 
-shutdown -r now - перезагрузка
+shutdown -r now - system reboot
 
 *
 
