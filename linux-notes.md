@@ -780,19 +780,19 @@ rpm -e pkg_name      - Removes an rpm package
 4) dpkg 
 
 
-dpkg -i [package.deb] - установить / обновить пакет
+dpkg -i [package.deb] - install a package
 
-dpkg -r [package] - удалить пакет из системы
+dpkg -r [package] - delete a package
 
-dpkg -l - показать все пакеты, установленные в систему
+dpkg -l - lists all installed packages
 
-dpkg -l | grep httpd - среди всех пакетов, установленных в системе, найти пакет содержащий в своём имени "httpd"
+dpkg -l | grep httpd - outputs only lines matching an 'httpd' string
 
-dpkg -s [package] - отобразить информацию о конкретном пакете
+dpkg -s [package] - show the information about a package
 
-dpkg -L [package] - вывести список файлов, входящих в пакет, установленный в систему
+dpkg -L [package] - lists all installed packages
 
-dpkg -S /bin/ping - найти пакет, в который входит указанный файл.
+dpkg -S /bin/ping - find a package that owes a file or directory /bin/ping
 
 
 5) dnf 
@@ -899,7 +899,7 @@ ln -s(--symbolic) ./dir/or/file ./dir2/file2 - creating a symbolic link with the
 
 cp seasonal/spring.csv seasonal/summer.csv backup 
 
-cp dir/* . - копировать все файлы директории dir в текущую директорию
+cp dir/* . - copy all files from dir/* to working directory(.)
 
 cp -a /tmp/dir1 . - копировать директорию dir1 со всем содержимым в текущую директорию
 
