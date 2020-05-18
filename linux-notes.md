@@ -489,7 +489,7 @@ timedatectl - Query and change the System clock
 
 *
 
- modinfo - Show information about a Linux Kernel module
+ modinfo - shows information about a Linux Kernel module
 
 *
 
@@ -612,7 +612,8 @@ grub-mkrescue - make a GRUB rescue image
 
 *
 
-df -h - отображает информацию о смонтированных разделах с отображением общего, доступного и используемого пространства
+df -h - displays information about mounted partitions and all, used and available space on them 
+
 
 df -m - show all disk space (display in Mb)
 
@@ -903,8 +904,8 @@ cp dir/* . - copy all files from dir/* to working directory(.)
 
 cp -a /tmp/dir1 . - копировать директорию dir1 со всем содержимым в текущую директорию
 
-cp -a ./dir1 ./dir2 - копировать директорию dir1 в директорию dir2 
-cp -R ./dir1 ./dir2 - copy the dir1 and with all files and subdir are containing in dir1 to dir2
+cp -a ./dir1 ./dir2 - copy dir1 into dir2 
+cp -R ./dir1 ./dir2 - copy all subdirectories and files of dir1 into dir2
 
 *
 
@@ -925,7 +926,7 @@ add -v (--verbose) to make it verbose or i to ignore
 
 rm -rf ./(Remove Dir with all files + force)
 
-rm -rf dir1 dir2 - удалить две директории и рекурсивно их содержимое 
+rm -rf dir1 dir2 - delete all  удалить две директории и рекурсивно их содержимое
 
 rm ./filename or all files in current directory also may be deleted type of files etc 
 
@@ -1186,7 +1187,7 @@ ps --ppid ${number} - gives us the processes running on bash shell with PID ${nu
 
 *
 
-top - отобразить запущенные процессы, используемые ими ресурсы и другую полезную информацию (с автоматическим обновлением данных)
+top - displays processes, RAM, CPU load and other information with live updating in a terminal 
 
 *
     
