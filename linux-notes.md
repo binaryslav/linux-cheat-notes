@@ -1173,7 +1173,18 @@ pstree - makes a tree of processes depends
 
 ps ux - to check all the processes running under a user 
 
-ps -eafw - отобразить запущенные процессы, используемые ими ресурсы и другую полезную информацию (единожды) 
+
+
+
+
+ps -eafw -!! ADD DETAILED EXPlANATION ABOUT FLAGS and details !!
+
+ отобразить запущенные процессы, используемые ими ресурсы и другую полезную информацию (единожды) 
+
+
+
+
+
 
 ps -e -o pid,args --forest -  display all processes with their PIDs as a tree.
 
