@@ -549,10 +549,9 @@ Below example command will execute at 5 AM and 5 PM daily. You can specify multi
 
 0 5,17 * * * /scripts/script.sh
 
-* * * * * /scripts/script.sh; /scripts/scrit2.sh - scheduling multiple tasks in single cron  
+* * * * * /scripts/script.sh; /scripts/scrit2.sh - scheduling multiple tasks in a single cron command 
 
 crontab -u ${username} -l (list) / -r (remove)
-
 
 *
 
@@ -902,7 +901,7 @@ cp seasonal/spring.csv seasonal/summer.csv backup
 
 cp dir/* . - copy all files from dir/* to working directory(.)
 
-cp -a /tmp/dir1 . - копировать директорию dir1 со всем содержимым в текущую директорию
+cp -a /tmp/dir1 . - copy dir1 and all its content recursively into the working dir(.)
 
 cp -a ./dir1 ./dir2 - copy dir1 into dir2 
 cp -R ./dir1 ./dir2 - copy all subdirectories and files of dir1 into dir2
@@ -926,7 +925,7 @@ add -v (--verbose) to make it verbose or i to ignore
 
 rm -rf ./(Remove Dir with all files + force)
 
-rm -rf dir1 dir2 - delete all  удалить две директории и рекурсивно их содержимое
+rm -rf dir1 dir2 - delete dir1 and dir2 directories with all theirs content recursively(including subfolders and their content)
 
 rm ./filename or all files in current directory also may be deleted type of files etc 
 
@@ -958,11 +957,11 @@ find ./Dir/ -name 'String*.jpg'
 
 find -type f  -name '1450648861.jpg' 
 
-find /usr/bin -type f -atime +100 - найти все файлы в '/usr/bin', время последнего обращения к которым более 100 дней
+find /usr/bin -type f -atime +100 - search in /usr/bin for all files that haven't been used for more than 100 days.
 
 find ./'Kate <3' -type f -atime -10 - find all files are last used less than 10 days ago.
  
-find /usr/bin -type f -mtime -10 - найти все файлы в '/usr/bin', созданные или изменённые в течении последних 10 дней
+find /usr/bin -type f -mtime -10 - search in /usr/bin for all files that have been created or modified in last 10 days.
 
 find ./dir/dir2 -name \*.jpg -print('print' is active as default option)
 
@@ -1003,13 +1002,13 @@ https://www.computerhope.com/unix/rename.htm
 *
 
 
-df -h - отображает информацию о смонтированных разделах с отображением общего, доступного и используемого пространства
+df -h - displays the information about mounted partitions and their total space amount (+ used and free space)
 
 *
 
 du - estimate file space usage 
 
-du -sh dir1 - подсчитывает и выводит размер, занимаемый директорией 'dir1'
+du -sh dir1 - calculate and displays the amount of space is used by dir1 
 
 *
 
@@ -1071,9 +1070,9 @@ commandName -run a command bin-file (firefox for example)
 
 commandName & - run a command in background 
 
-%n & - Перевод задания в фоновый режим без его отмены
+%n & - put a process "n" in background without stopping it 
 
-%n - Перевод фонового задания в приоритетный режим
+%n - put a command "n" in foreground 
 
 *
 
@@ -1101,7 +1100,7 @@ pidstat - report statistics for Linux tasks with PID,CPU,UID and name of command
 
 *
 
-free -m/h - показать состояние оперативной памяти в мегабайтах(Free RAM in Mb)/human-readable
+free -m/h - display some information about total,free and used RAM in Mb/human-readable
 
 *
 
@@ -1177,7 +1176,7 @@ ps ux - to check all the processes running under a user
 
 
 
-ps -eafw -!! ADD DETAILED EXPlANATION ABOUT FLAGS and details !!
+ps -eafw -!! ADD DETAILED EXPlANATION ABOUT FLAGS in details !!
 
  отобразить запущенные процессы, используемые ими ресурсы и другую полезную информацию (единожды) 
 
@@ -1251,11 +1250,11 @@ sudo echo > 200
 
 *
 
-host 
+hosts - static table lookup for hostnames
 
 *
 
-telnet
+telnet - UI to Telnet server
 
 *
 
@@ -1267,7 +1266,8 @@ tracerout
 
 *
 
-ssh 
+ssh - OpenSSH remote login client
+
 
 *
 
@@ -1327,15 +1327,15 @@ ss - is  used  to  dump socket statistics. It allows showing information similar
 
 *
 
-echo 'wget -c http://www.example.com/files.iso' | at 09:00 - начать закачку в указанное время
+echo 'wget -c http://www.example.com/files.iso' | at 09:00 - to schedule a download at 9:00(am)
 
 *
 
 wget file_name - downloads a file from an online source 
 
-wget -r http://www.example.com - загружает рекурсивно содержимое сайта http://www.example.com
+wget -r http://www.example.com - to dowload a content from example.com recursively
  
-wget -c http://www.example.com/file.iso - загрузить файл http://www.example.com/file.iso с возможностью останова и продолжения в последствии 
+wget -c http://www.example.com/file.iso - to download a file from example.com with the ability to stop it anytime you wish and then continue again later
 
 *
 
