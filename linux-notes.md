@@ -563,7 +563,6 @@ Below example command will execute at 5 AM and 5 PM daily. You can specify multi
 
 crontab -u ${username} -l (list) / -r (remove)
 
-crontab -
 
 *
 
@@ -572,7 +571,7 @@ dbus-monitor --system / or --session - display all system or session dbus logs i
 
 *
 
-ssh user@host - securely connect to host as user 
+ssh user_name@host(IP/Domain_name)- securely connect to host as user
 
 ssh -p port_number user@host - securely connect to host using a specific port 
 
