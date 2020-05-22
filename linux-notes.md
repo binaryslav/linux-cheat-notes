@@ -156,7 +156,7 @@ look - display lines beginning with a given string (look up for a given string o
 
 *
 
-tee -duplicate stnd input / duplicate pipe content / read from standard input and write into output and        files 
+tee  - duplicate stnd input / duplicate pipe content / read from standard input and write into output and        files 
 
 *
 
@@ -274,6 +274,11 @@ split - split files into pieces
 
 sed - stream editor for filtering and transforming text
 
+
+https://www.geeksforgeeks.org/sed-command-in-linux-unix-with-examples/
+
+https://www.geeksforgeeks.org/sed-command-linux-set-2/?ref=rp
+
 *
 
 shred - overwrite a file to hide its contents, and optionally delete it 
@@ -357,6 +362,11 @@ A= 5
 B= 3 
 
 *
+!!! important one 
+
+https://stackoverflow.com/questions/4651437/how-do-i-set-a-variable-to-the-output-of-a-command-in-bash?noredirect=1&lq=1
+
+* 
 
  VARIABLES: NAME="John" 
  
@@ -553,6 +563,8 @@ Below example command will execute at 5 AM and 5 PM daily. You can specify multi
 
 crontab -u ${username} -l (list) / -r (remove)
 
+crontab -
+
 *
 
 dbus-monitor --system / or --session - display all system or session dbus logs in real time 
@@ -627,6 +639,12 @@ dmidecode - show almost all information about hardware : motherboard,processor e
 *
 
 iostat -Report Central Processing Unit (CPU) statistics and input/output statistics for devices and partitions.
+
+*
+
+hostnamectl - control the system hostname also provides information about kernel, architecture, boot id, machine id 
+
+sudo hostnamectl set-hostname newName - to change a hostname 
 
 *
 
@@ -1198,6 +1216,10 @@ ps --ppid ${number} - gives us the processes running on bash shell with PID ${nu
 *
 
 top - displays processes, RAM, CPU load and other information with live updating in a terminal 
+
+* 
+
+htop - displays processes, RAM, CPU load and other information with live updating in a terminal. Pseudo-graphical 
 
 *
     
