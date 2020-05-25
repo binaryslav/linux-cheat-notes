@@ -511,7 +511,7 @@ timedatectl - Query and change the System clock
 
  insmod - download mod into the memory by adding to the kernel 
 
- rmmod - remove mod 
+ rmmod - simple programm to resolve a module from the Linux Kernel 
 
 *
 
