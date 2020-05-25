@@ -107,7 +107,7 @@ alias neWname='someCommand'
 
 unalias commandName
 
-unalias -a ( means all)
+unalias -a ( "-a" means all)
 
 alias lf='ls -alF | sort'
 
@@ -127,7 +127,7 @@ clear - clear a terminal screen
 
 *
 
-history 
+history - list all used commands (their number is limited and they are stored in )
 
 * 
 
