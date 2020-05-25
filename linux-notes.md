@@ -127,7 +127,7 @@ clear - clear a terminal screen
 
 *
 
-history - list all used commands (their number is limited and they are stored in )
+history - list all used commands ( their number is limited and they are stored in )
 
 * 
 
@@ -291,13 +291,13 @@ hexdump  - similar to the above one
 
 *
 
-cat 
+cat - concatenate files and and print on the standard output 
 
 cat /dev/null > file.txt - purge file's content 
 
 *
 
-tac - 
+tac - reversed output from cat 
 
 *
 
