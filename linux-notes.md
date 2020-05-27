@@ -431,7 +431,7 @@ for i in {0..10}; do printf "%s\n"  "$i"; done  -->
 
      id - displays the details of the active user e.g. uid, gid and groups 
 
-     *
+*
 
      groupadd "admin" - adds the group admin 
 
@@ -439,73 +439,74 @@ for i in {0..10}; do printf "%s\n"  "$i"; done  -->
 
      userdel "Sam" - deletes user Sam 
 
-     *
+*
 
      usermod - used for changing modifying user information 
 
-     *
+*
 
      who - shows who's logged in to the session 
 
      w - the same but is more informative one 
 
-     *
+*
 
      whoami - displays who are you logged in as 
 
-     * 
+* 
+
      passwd - set/change password 
 
-     *
+*
 
      chroot - change root directory ( for safe sandboxing )
 
-     *
+*
 
      chown - change the owner of a file or folder 
 
-     *
+*
 
      date - show current date and time 
 
-     * 
+* 
 
      uptime - current session duration 
 
-     * 
+* 
 
      timedatectl - Query and change the System clock 
 
-     *
+*
 
 
      cal /or/ cal 7 2018 - display the current mounth or the significant month.
 
-     *
+*
      last - displays all together reboots and system boots 
 
      last reboot - display the history of reboots and system loads 
 
-     * 
+* 
 
      uname -a - session information(kernel,architecture)
 
-     *
+*
 
      hostname - shows the system hostname 
 
      hostname -i - displays the IP address of the system 
 
 
-     *
+*
 
      modinfo - shows information about a Linux Kernel module
 
-     *
+*
 
      runlevel - displays current running level of system
 
-     * 
+* 
 
      lsmod - shows which loadable kernel modules are currently loaded
 
@@ -513,13 +514,13 @@ for i in {0..10}; do printf "%s\n"  "$i"; done  -->
 
      rmmod - simple programm to resolve a module from the Linux Kernel 
 
-     *
+*
 
      systemd-analyze - display how much time takes the system for the boot.
 
      systemd-analyze blame - the same to the above but make a list of services 
 
-     *
+*
 
      Locale
 
@@ -531,7 +532,7 @@ for i in {0..10}; do printf "%s\n"  "$i"; done  -->
 
      dpkg-reconfigure locales 
 
-     *
+*
 
      shutdown -h now - immediately shutdown the system
 
@@ -543,15 +544,15 @@ for i in {0..10}; do printf "%s\n"  "$i"; done  -->
 
      shutdown -r now - system reboot
 
-     *
+*
 
      sleep - suspend execution for an interval 
 
-     *
+*
 
      at - execute a command at a later time 
 
-     * 
+* 
 
      https://tecadmin.net/crontab-in-linux-with-20-examples-of-cron-schedule/
 
@@ -564,22 +565,13 @@ for i in {0..10}; do printf "%s\n"  "$i"; done  -->
      crontab -u ${username} -l (list) / -r (remove)
 
 
-     *
+*
 
      dbus-monitor --system / or --session - display all system or session dbus logs in real time 
 
 
-     *
+*
 
-     ssh user_name@host(IP/Domain_name)- securely connect to host as user
-
-     ssh -p port_number user@host - securely connect to host using a specific port 
-
-     ssh host - securely connect to the system via SHH default port 22 
-
-     telnet host - connect to host via telnet default port 23 
-
-     *
 
  
 
@@ -1279,6 +1271,16 @@ for i in {0..10}; do printf "%s\n"  "$i"; done  -->
 *
 
      telnet - UI to Telnet server
+
+     telnet host - connect to host via telnet default port 23 
+
+*
+
+     ssh user_name@host(IP/Domain_name)- securely connect to host as user
+
+     ssh -p port_number user@host - securely connect to host using a specific port 
+
+     ssh host - securely connect to the system via SHH default port 22 
 
 *
 
