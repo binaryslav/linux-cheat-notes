@@ -402,184 +402,184 @@ for i in {0..10}; do printf "%s\n"  "$i"; done  -->
 
 
 **/ SESSION /**
- 
- ctr + alt + Fn - open the virtual console number n
- 
+     
+     ctr + alt + Fn - open the virtual console number n
+     
 
 *
 
-sudo SuperUser execution for an entering comand (1)
+     sudo SuperUser execution for an entering comand (1)
 
-sudo su (after that all commands will be execute from SUPERUSER/mounted(?))
+     sudo su (after that all commands will be execute from SUPERUSER/mounted(?))
 
-sudo !! ( execute next commands as root )
-
-
- *
-
-echo 'wget -c http://www.example.com/files.iso' | at 09:00 - начать закачку в указанное время
-
-echo "$(tput setaf 1)Red text $(tput setab 7)and white background$(tput sgr 0)" - the way to set  a custom colour scheme for terminal output ( one time only, don't worry ) 
-
-*
-
-login username 
-
-logout username - leave the current session  
-
-*
-
-id - displays the details of the active user e.g. uid, gid and groups 
-
-*
-
-groupadd "admin" - adds the group admin 
-
-adduser "Sam" - adds user Sam 
-
-userdel "Sam" - deletes user Sam 
-
-*
-
-usermod - used for changing modifying user information 
-
-*
-
- who - shows who's logged in to the session 
-
- w - the same but is more informative one 
-
-*
-
- whoami - displays who are you logged in as 
-
-* 
- passwd - set/change password 
-
-*
-
-chroot - change root directory ( for safe sandboxing )
-
-*
-
-chown - change the owner of a file or folder 
-
-*
-
- date - show current date and time 
-
-* 
-
- uptime - current session duration 
-
-* 
-
-timedatectl - Query and change the System clock 
-
-*
-
-
- cal /or/ cal 7 2018 - display the current mounth or the significant month.
-
-*
- last - displays all together reboots and system boots 
-
- last reboot - display the history of reboots and system loads 
-
-* 
-
- uname -a - session information(kernel,architecture)
-
-*
-
- hostname - shows the system hostname 
-
- hostname -i - displays the IP address of the system 
+     sudo !! ( execute next commands as root )
 
 
 *
 
- modinfo - shows information about a Linux Kernel module
+     echo 'wget -c http://www.example.com/files.iso' | at 09:00 - начать закачку в указанное время
+
+     echo "$(tput setaf 1)Red text $(tput setab 7)and white background$(tput sgr 0)" - the way to set  a custom colour scheme for terminal output ( one time only, don't worry ) 
+
+     *
+
+     login username 
+
+     logout username - leave the current session  
 
 *
 
- runlevel - displays current running level of system
+     id - displays the details of the active user e.g. uid, gid and groups 
 
-* 
+     *
 
- lsmod - shows which loadable kernel modules are currently loaded
+     groupadd "admin" - adds the group admin 
 
- insmod - download mod into the memory by adding to the kernel 
+     adduser "Sam" - adds user Sam 
 
- rmmod - simple programm to resolve a module from the Linux Kernel 
+     userdel "Sam" - deletes user Sam 
 
-*
+     *
 
- systemd-analyze - display how much time takes the system for the boot.
+     usermod - used for changing modifying user information 
 
- systemd-analyze blame - the same to the above but make a list of services 
+     *
 
-*
+     who - shows who's logged in to the session 
 
-Locale
+     w - the same but is more informative one 
 
-Locale -a 
+     *
 
-cat /etc/locale.gen
+     whoami - displays who are you logged in as 
 
-sudo locale-gen ru_RU.UTF-8 (for example) 
+     * 
+     passwd - set/change password 
 
-dpkg-reconfigure locales 
+     *
 
-*
+     chroot - change root directory ( for safe sandboxing )
 
-shutdown -h now - immediately shutdown the system
+     *
 
-shutdown -h 16:30 & - schedules the system for shutdown at 16:30
+     chown - change the owner of a file or folder 
 
-shutdown -h +10 - shutting down the system after 10 min
+     *
 
-shutdown -c - to cancel scheduled shutdown
+     date - show current date and time 
 
-shutdown -r now - system reboot
+     * 
 
-*
+     uptime - current session duration 
 
-sleep - suspend execution for an interval 
+     * 
 
-*
+     timedatectl - Query and change the System clock 
 
-at - execute a command at a later time 
-
-* 
-
-https://tecadmin.net/crontab-in-linux-with-20-examples-of-cron-schedule/
-
-Below example command will execute at 5 AM and 5 PM daily. You can specify multiple time stamps by comma-separated.
-
-0 5,17 * * * /scripts/script.sh
-
-* * * * * /scripts/script.sh; /scripts/scrit2.sh - scheduling multiple tasks in a single cron command 
-
-crontab -u ${username} -l (list) / -r (remove)
+     *
 
 
-*
+     cal /or/ cal 7 2018 - display the current mounth or the significant month.
 
-dbus-monitor --system / or --session - display all system or session dbus logs in real time 
+     *
+     last - displays all together reboots and system boots 
+
+     last reboot - display the history of reboots and system loads 
+
+     * 
+
+     uname -a - session information(kernel,architecture)
+
+     *
+
+     hostname - shows the system hostname 
+
+     hostname -i - displays the IP address of the system 
 
 
-*
+     *
 
-ssh user_name@host(IP/Domain_name)- securely connect to host as user
+     modinfo - shows information about a Linux Kernel module
 
-ssh -p port_number user@host - securely connect to host using a specific port 
+     *
 
-ssh host - securely connect to the system via SHH default port 22 
+     runlevel - displays current running level of system
 
-telnet host - connect to host via telnet default port 23 
+     * 
 
-*
+     lsmod - shows which loadable kernel modules are currently loaded
+
+     insmod - download mod into the memory by adding to the kernel 
+
+     rmmod - simple programm to resolve a module from the Linux Kernel 
+
+     *
+
+     systemd-analyze - display how much time takes the system for the boot.
+
+     systemd-analyze blame - the same to the above but make a list of services 
+
+     *
+
+     Locale
+
+     Locale -a 
+
+     cat /etc/locale.gen
+
+     sudo locale-gen ru_RU.UTF-8 (for example) 
+
+     dpkg-reconfigure locales 
+
+     *
+
+     shutdown -h now - immediately shutdown the system
+
+     shutdown -h 16:30 & - schedules the system for shutdown at 16:30
+
+     shutdown -h +10 - shutting down the system after 10 min
+
+     shutdown -c - to cancel scheduled shutdown
+
+     shutdown -r now - system reboot
+
+     *
+
+     sleep - suspend execution for an interval 
+
+     *
+
+     at - execute a command at a later time 
+
+     * 
+
+     https://tecadmin.net/crontab-in-linux-with-20-examples-of-cron-schedule/
+
+     Below example command will execute at 5 AM and 5 PM daily. You can specify multiple time stamps by comma-separated.
+
+     0 5,17 * * * /scripts/script.sh
+
+     * * * * * /scripts/script.sh; /scripts/scrit2.sh - scheduling multiple tasks in a single cron command 
+
+     crontab -u ${username} -l (list) / -r (remove)
+
+
+     *
+
+     dbus-monitor --system / or --session - display all system or session dbus logs in real time 
+
+
+     *
+
+     ssh user_name@host(IP/Domain_name)- securely connect to host as user
+
+     ssh -p port_number user@host - securely connect to host using a specific port 
+
+     ssh host - securely connect to the system via SHH default port 22 
+
+     telnet host - connect to host via telnet default port 23 
+
+     *
 
  
 
@@ -594,87 +594,87 @@ telnet host - connect to host via telnet default port 23
 
 *
 
- sudo pacman -Sy hw-probe 
- 
- sudo -E hw-probe -all -upload 
- 
- https://linux-hardware.org/?probe=07b1242112 - 11.04.20 results 
- 
+     sudo pacman -Sy hw-probe 
+     
+     sudo -E hw-probe -all -upload 
+     
+     https://linux-hardware.org/?probe=07b1242112 - 11.04.20 results 
+     
 * 
 
-sudo lshw - list all the hardware
+     sudo lshw - list all the hardware
 
 *
 
-cpu - check it out 
+     cpu - check it out 
 
 *
 
-runlevel - displays current running level of system.
+     runlevel - displays current running level of system.
 
 *
 
-grub-probe - probe device information for GRUB 
+     grub-probe - probe device information for GRUB 
 
-grub-mkrescue - make a GRUB rescue image 
+     grub-mkrescue - make a GRUB rescue image 
 
-
-
-*
-
-df -h - displays information about mounted partitions and all, used and available space on them 
-
-
-df -m - show all disk space (display in Mb)
 
 
 *
-inxi -Fxz - call the list of system properies and parametrs with the using devices included(PCI  devices)
+
+     df -h - displays information about mounted partitions and all, used and available space on them 
+
+
+     df -m - show all disk space (display in Mb)
+
+
+*
+     inxi -Fxz - call the list of system properies and parametrs with the using devices included(PCI  devices)
 
 *
 
-dmidecode - show almost all information about hardware : motherboard,processor etc 
+     dmidecode - show almost all information about hardware : motherboard,processor etc 
 
 *
 
-iostat -Report Central Processing Unit (CPU) statistics and input/output statistics for devices and partitions.
+     iostat -Report Central Processing Unit (CPU) statistics and input/output statistics for devices and partitions.
 
 *
 
-hostnamectl - control the system hostname also provides information about kernel, architecture, boot id, machine id 
+     hostnamectl - control the system hostname also provides information about kernel, architecture, boot id, machine id 
 
-sudo hostnamectl set-hostname newName - to change a hostname 
-
-*
-
-nproc - display number of available cores 
+     sudo hostnamectl set-hostname newName - to change a hostname 
 
 *
 
-lscpu - info about cpu
+     nproc - display number of available cores 
 
 *
 
-lspci - is a utility for displaying information about PCI buses in the system and devices connected to them. By default, it shows a brief list of devices. 
-
-lspci | grep VGA - to get my bus ID 
-
-lspci -k - display Kernel Drivers ( in use and loaded) for the hardware
-
-lspci -tv (tree like output)
+     lscpu - info about cpu
 
 *
 
-lsusb -tv  - displays USB devices in a tree-like diagram
+     lspci - is a utility for displaying information about PCI buses in the system and devices connected to them. By default, it shows a brief list of devices. 
 
-acpi - shows battery status and other ACPI information 
+     lspci | grep VGA - to get my bus ID 
+
+     lspci -k - display Kernel Drivers ( in use and loaded) for the hardware
+
+     lspci -tv (tree like output)
 
 *
-dmesg - display all dignostic messages from tty1 into a current treminal which is running from Kernel Linux.
+
+     lsusb -tv  - displays USB devices in a tree-like diagram
+
+     acpi - shows battery status and other ACPI information 
+
+*
+     dmesg - display all dignostic messages from tty1 into a current treminal which is running from Kernel Linux.
 
 *
 
-badblocks -s /dev/xda - tests for unreadable blocks on disk 
+     badblocks -s /dev/xda - tests for unreadable blocks on disk 
 
 * 
 
@@ -691,130 +691,133 @@ badblocks -s /dev/xda - tests for unreadable blocks on disk
 
 **/ PACKAGE MANAGERS /**
 
-Package managers do : extracting, compiling(from the source to the binary code), decompressing if needed and track the changes.
+*
 
-
-1) apt 
+     Package managers do : extracting, compiling(from the source to the binary code), decompressing if needed and track the changes.
 
 *
 
-sudo apt add-apt-repository ppa:graphics-drivers/ppa 
+     1) apt 
 
-sudo apt update
+          sudo apt add-apt-repository ppa:graphics-drivers/ppa 
+
+          sudo apt update
+
+          sudo apt-get changelog PACKAGE
+
+          sudo apt-get download PACKAGE (without installing)
+
+          sudo apt-get install packageName --only-upgrade ( do not innstall new packages but upgrade already installed )
+
+          sudo apt-get install packageName --no-upgrade ( will prevent already installed packgaes from upgrading while installing some new ) 
+
+          sudo apt update ----> sudo apt upgrade ----> sudo apt autoremove -----> 
+
+          Usage: apt command [options]
+               apt help command [options]
+
+          Commands:
+          add-repository   - Add entries to apt sources.list
+          autoclean        - Erase old downloaded archive files
+          autoremove       - Remove automatically all unused packages
+          build            - Build binary or source packages from sources
+          build-dep        - Configure build-dependencies for source packages
+          changelog        - View a package's changelog
+          check            - Verify that there are no broken dependencies
+          clean            - Erase downloaded archive files
+          contains         - List packages containing a file
+          content          - List files contained in a package
+          deb              - Install a .deb package
+          depends          - Show raw dependency information for a package
+          dist-upgrade     - Upgrade the system by removing/installing/upgrading packages
+          download         - Download the .deb file for a package
+          edit-sources     - Edit /etc/apt/sources.list with your preferred text editor
+          dselect-upgrade  - Follow dselect selections
+          full-upgrade     - Same as 'dist-upgrade'
+          held             - List all held packages
+          help             - Show help for a command
+          hold             - Hold a package
+          install          - Install/upgrade packages
+          list             - List packages based on package names
+          policy           - Show policy settings
+          purge            - Remove packages and their configuration files
+          recommends       - List missing recommended packages for a particular package
+          rdepends         - Show reverse dependency information for a package
+          reinstall        - Download and (possibly) reinstall a currently installed package
+          remove           - Remove packages
+          search           - Search for a package by name and/or expression
+          show             - Display detailed information about a package
+          showhold         - Same as 'held'
+          source           - Download source archives
+          sources          - Same as 'edit-sources'
+          unhold           - Unhold a package
+          update           - Download lists of new/upgradable packages
+          upgrade          - Perform a safe upgrade
+          version          - Show the installed version of a package
+
+          sudo apt-get install [a pakage]  
+
+          sudo apt list --------->  apt show [a pakage] => get a full information about a pakage.
+
+          sudo apt search [a pakage/string of pakage]
+
+
+     2) pacman 
+
+          usage:  pacman <operation> [...]
+          operations:
+          pacman {-h --help}
+          pacman {-V --version}
+          pacman {-D --database} <options> <package(s)>
+          pacman {-F --files}    [options] [package(s)]
+          pacman {-Q --query}    [options] [package(s)]
+          pacman {-R --remove}   [options] <package(s)>
+          pacman {-S --sync}     [options] [package(s)]
+          pacman {-T --deptest}  [options] [package(s)]
+          pacman {-U --upgrade}  [options] <file(s)>
+
+*   
+          sudo pacman -Sy hw-probe 
+          
+          sudo -E hw-probe -all -upload 
+          
+          https://linux-hardware.org/?probe=07b1242112 - 11.04.20 results 
+*
+
+     3) rpm
+
+          rpm -V ${package} - to check changes in versions 
+          rpm -qf /etc/passwd - check who's the owner of this file 
 
 *
-sudo apt-get changelog PACKAGE
 
-sudo apt-get download PACKAGE (without installing)
-
-sudo apt-get install packageName --only-upgrade ( do not innstall new packages but upgrade already installed )
-
-sudo apt-get install packageName --no-upgrade ( will prevent already installed packgaes from upgrading while installing some new ) 
-
-sudo apt update ----> sudo apt upgrade ----> sudo apt autoremove -----> 
-
-Usage: apt command [options]
-       apt help command [options]
-
-Commands:
-  add-repository   - Add entries to apt sources.list
-  autoclean        - Erase old downloaded archive files
-  autoremove       - Remove automatically all unused packages
-  build            - Build binary or source packages from sources
-  build-dep        - Configure build-dependencies for source packages
-  changelog        - View a package's changelog
-  check            - Verify that there are no broken dependencies
-  clean            - Erase downloaded archive files
-  contains         - List packages containing a file
-  content          - List files contained in a package
-  deb              - Install a .deb package
-  depends          - Show raw dependency information for a package
-  dist-upgrade     - Upgrade the system by removing/installing/upgrading packages
-  download         - Download the .deb file for a package
-  edit-sources     - Edit /etc/apt/sources.list with your preferred text editor
-  dselect-upgrade  - Follow dselect selections
-  full-upgrade     - Same as 'dist-upgrade'
-  held             - List all held packages
-  help             - Show help for a command
-  hold             - Hold a package
-  install          - Install/upgrade packages
-  list             - List packages based on package names
-  policy           - Show policy settings
-  purge            - Remove packages and their configuration files
-  recommends       - List missing recommended packages for a particular package
-  rdepends         - Show reverse dependency information for a package
-  reinstall        - Download and (possibly) reinstall a currently installed package
-  remove           - Remove packages
-  search           - Search for a package by name and/or expression
-  show             - Display detailed information about a package
-  showhold         - Same as 'held'
-  source           - Download source archives
-  sources          - Same as 'edit-sources'
-  unhold           - Unhold a package
-  update           - Download lists of new/upgradable packages
-  upgrade          - Perform a safe upgrade
-  version          - Show the installed version of a package
-
-sudo apt-get install [a pakage]  
-
-sudo apt list --------->  apt show [a pakage] => get a full information about a pakage.
-
-sudo apt search [a pakage/string of pakage]
+          rpm -i pkg_name.rpm  - Install an rpm package
+          rpm -e pkg_name      - Removes an rpm package
 
 
-2) pacman 
-
-usage:  pacman <operation> [...]
-operations:
-    pacman {-h --help}
-    pacman {-V --version}
-    pacman {-D --database} <options> <package(s)>
-    pacman {-F --files}    [options] [package(s)]
-    pacman {-Q --query}    [options] [package(s)]
-    pacman {-R --remove}   [options] <package(s)>
-    pacman {-S --sync}     [options] [package(s)]
-    pacman {-T --deptest}  [options] [package(s)]
-    pacman {-U --upgrade}  [options] <file(s)>
-
- *   
- sudo pacman -Sy hw-probe 
- 
- sudo -E hw-probe -all -upload 
- 
- https://linux-hardware.org/?probe=07b1242112 - 11.04.20 results 
- *
-
-3) rpm
-
-rpm -V ${package} - to check changes in versions 
-rpm -qf /etc/passwd - check who's the owner of this file 
+     4) dpkg 
 
 
-rpm -i pkg_name.rpm  - Install an rpm package
-rpm -e pkg_name      - Removes an rpm package
+          dpkg -i [package.deb] - install a package
+
+          dpkg -r [package] - delete a package
+
+*
+
+          dpkg -l - lists all installed packages
+
+          dpkg -l | grep httpd - outputs only lines matching an 'httpd' string
+
+          dpkg -s [package] - show the information about a package
+
+          dpkg -L [package] - lists all installed packages
+
+          dpkg -S /bin/ping - find a package that owes a file or directory /bin/ping
 
 
-4) dpkg 
+     5) dnf 
 
-
-dpkg -i [package.deb] - install a package
-
-dpkg -r [package] - delete a package
-
-dpkg -l - lists all installed packages
-
-dpkg -l | grep httpd - outputs only lines matching an 'httpd' string
-
-dpkg -s [package] - show the information about a package
-
-dpkg -L [package] - lists all installed packages
-
-dpkg -S /bin/ping - find a package that owes a file or directory /bin/ping
-
-
-5) dnf 
-
-dnf install packageName - to install a package using dnf utility 
+          dnf install packageName - to install a package using dnf utility 
 
 
 
