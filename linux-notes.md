@@ -6,11 +6,11 @@ CONTENTS:
 5)File system and disk space
 6)Processes and memory
 7)Networking
-8)Vi and Vim
+8)Vi + Vim
 9)Other
 
 
-*********/ BASH /*********
+**/ BASH /**
 
 
 * 
@@ -401,7 +401,7 @@ for i in {0..10}; do printf "%s\n"  "$i"; done  -->
 
 
 
-*********/ SESSION /********* 
+**/ SESSION /**
  
  ctr + alt + Fn - open the virtual console number n
  
@@ -590,7 +590,7 @@ telnet host - connect to host via telnet default port 23
 
 
 
-*********/ HARDWARE AND FIRMWARE /*********
+**/ HARDWARE AND FIRMWARE /**
 
 *
 
@@ -689,7 +689,7 @@ badblocks -s /dev/xda - tests for unreadable blocks on disk
 
 
 
-*********/ PACKAGE MANAGERS /*********
+**/ PACKAGE MANAGERS /**
 
 Package managers do : extracting, compiling(from the source to the binary code), decompressing if needed and track the changes.
 
@@ -818,613 +818,619 @@ dnf install packageName - to install a package using dnf utility
 
 
 
-*********/ FILE SYSTEM AND DISK SPACE /*********
+**/ FILE SYSTEM AND DISK SPACE /**
 
-GID, UID, PID, PPID - indexes 
+     GID, UID, PID, PPID - indexes 
 
 *
 
-umask - DNAGEROUS ONE. Read the manual out before use ( set file mode creation mask (or get)) 
+     umask - DNAGEROUS ONE. Read the manual out before use ( set file mode creation mask (or get)) 
 
 * 
 
-chown - change the owner of a file or folder 
+     chown - change the owner of a file or folder 
 
 *
 
-chmod -  to change permissions for a file or folder 
+     chmod -  to change permissions for a file or folder 
 
-chmod + / - xwr ( where + means to add and - means to deny; x for execute, w for write and r for read )
+     chmod + / - xwr ( where + means to add and - means to deny; x for execute, w for write and r for read )
 
-chmod R -rwx file_name/dir - to deny recursively 
-
-*
-
-gzip file - to compress to a .gz file 
-
-unzip file1.zip - to unzip and unpack a zip-file 
-
-unrar x file1.rar - to unzip a rar-file
- 
-tar -xvf archive.tar -C /tmp - to unzip a file into "/tmp"
- 
-tar -xvfz archive.tar.gz - to unzip and unpack a compressed file
-
+     chmod R -rwx file_name/dir - to deny recursively 
 
 *
 
-gpg -c file_name - encrypts a file 
+     gzip file - to compress to a .gz file 
 
-gpg file_name.gpg - decrypts a file
+     unzip file1.zip - to unzip and unpack a zip-file 
 
-*
+     unrar x file1.rar - to unzip a rar-file
+     
+     tar -xvf archive.tar -C /tmp - to unzip a file into "/tmp"
+     
+     tar -xvfz archive.tar.gz - to unzip and unpack a compressed file
 
-realpath - resolve a pathname (for both symbolic and hard links) 
-
-*
-
-ls -a(All files) -R(with a tree of parents subdirectories) -i( show the I-node number of F) -l(shows as a list)  
-
-ls -lapt
-
-ls -alt ~/.local/share/Trash/files -list and sort all files in the Trash
 
 *
 
-echo * - display names of all files in working directory
+     gpg -c file_name - encrypts a file 
+
+     gpg file_name.gpg - decrypts a file
 
 *
 
-vdir - list directory contents
+     realpath - resolve a pathname (for both symbolic and hard links) 
 
 *
 
-lsof - list open files (by all processes and users)
+     ls -a(All files) -R(with a tree of parents subdirectories) -i( show the I-node number of F) -l(shows as a list)  
 
-lsof -p PIDnumber - display the list of files opened by the process PIDnumber
+     ls -lapt
 
-*
-cd .. 
-
-cd ../../(n) - up to the root <---u
-
-cd /**/**/(n) - down  u----> 
-
-cd -   - to the last used dir
-
-cd ~  - cd to Home 
+     ls -alt ~/.local/share/Trash/files -list and sort all files in the Trash
 
 *
 
-touch  newFile.whatever - creat an empty file with 
+     echo * - display names of all files in working directory
 
 *
 
-mkfifo - make a FIFO special file ( a named pipe ).It's a pipe-like hole-file (check it out)
+     vdir - list directory contents
+
+*
+
+     lsof - list open files (by all processes and users)
+
+     lsof -p PIDnumber - display the list of files opened by the process PIDnumber
+
+*
+     cd .. 
+
+     cd ../../(n) - up to the root <---u
+
+     cd /**/**/(n) - down  u----> 
+
+     cd -   - to the last used dir
+
+     cd ~  - cd to Home 
+
+*
+
+     touch  newFile.whatever - creat an empty file with 
+
+*
+
+     mkfifo - make a FIFO special file ( a named pipe ).It's a pipe-like hole-file (check it out)
 
 * 
 
-mkdir /home/bash/test/{foo,bar,baz,cat,dog}
+     mkdir /home/bash/test/{foo,bar,baz,cat,dog}
 
-mkdir -p ./NewDir1/NewDir2/NewDir3
-
-*
-
-ln -s(--symbolic) ./dir/or/file ./dir2/file2 - creating a symbolic link with the same PID with the origins File/Dir in selected directory/file
+     mkdir -p ./NewDir1/NewDir2/NewDir3
 
 *
 
-cp seasonal/spring.csv seasonal/summer.csv backup 
-
-cp dir/* . - copy all files from dir/* to working directory(.)
-
-cp -a /tmp/dir1 . - copy dir1 and all its content recursively into the working dir(.)
-
-cp -a ./dir1 ./dir2 - copy dir1 into dir2 
-cp -R ./dir1 ./dir2 - copy all subdirectories and files of dir1 into dir2
+     ln -s(--symbolic) ./dir/or/file ./dir2/file2 - creating a symbolic link with the same PID with the origins File/Dir in selected directory/file
 
 *
 
-mv text1.txt text2.txt ------> ls results: text2.txt only existing
-mv ./Dir1 ./Dir2 - move dir1 into dir2
+     cp seasonal/spring.csv seasonal/summer.csv backup 
 
-mv ./string*.jpg ./dir
+     cp dir/* . - copy all files from dir/* to working directory(.)
 
-mv ./*png ./dir
+     cp -a /tmp/dir1 . - copy dir1 and all its content recursively into the working dir(.)
 
-mv ./*jpg 
-
-mv *.png .. - move to one layer high 
+     cp -a ./dir1 ./dir2 - copy dir1 into dir2 
+     cp -R ./dir1 ./dir2 - copy all subdirectories and files of dir1 into dir2
 
 *
 
-add -v (--verbose) to make it verbose or i to ignore 
+     mv text1.txt text2.txt ------> ls results: text2.txt only existing
+     mv ./Dir1 ./Dir2 - move dir1 into dir2
 
-rm -rf ./(Remove Dir with all files + force)
+     mv ./string*.jpg ./dir
 
-rm -rf dir1 dir2 - delete dir1 and dir2 directories with all theirs content recursively(including subfolders and their content)
+     mv ./*png ./dir
 
-rm ./filename or all files in current directory also may be deleted type of files etc 
+     mv ./*jpg 
 
-rm ./dir/*.jpg
-
-rmdir ./(remove empty dir) 
-
-*
-
-find . -type f -exec ls -s {} \; | sort -n -r | head -5    - find top 5 big files
-
-find . -type f -exec ls -s {} \; | sort -n | head -5    - find top 5 small files
-
-find . -maxdepth 3 -empty -not -name ".*" - lists only NOT hidden empty files in next 3 levels from ./
-
-find -maxdepth 4 -not -iname "NAME" - invert matching results 
-
-find -maxdepth 2 -iname NameOfFile  - will control the serch depth
-
-find -mindepth 3 -maxdepth 5 -iname NameOfFile  - (search only on 3 to 5 levels from root)
-
-find -iname ( will be Ignoring Case)
-
-find /Dir/Dir2 -name '*.jpg' - to find all files that have extansion *.jpg in target directory
-
-find -type f -name '*.jpg' | rename 's/\string1/string2/' 
-
-find ./Dir/ -name 'String*.jpg' 
-
-find -type f  -name '1450648861.jpg' 
-
-find /usr/bin -type f -atime +100 - search in /usr/bin for all files that haven't been used for more than 100 days.
-
-find ./'Kate <3' -type f -atime -10 - find all files are last used less than 10 days ago.
- 
-find /usr/bin -type f -mtime -10 - search in /usr/bin for all files that have been created or modified in last 10 days.
-
-find ./dir/dir2 -name \*.jpg -print('print' is active as default option)
-
-find ~/1*/**/ -type f -name '*hd*' (the example of inetresting syntax)
-
-
-
-? - one any symbol 
-
-* - any string of symbols 
-
-'*999*' 
-
-'?*999.png' 
-
-dir/*
-
-'/**' = '/*/*.../n' 
+     mv *.png .. - move to one layer high 
 
 *
 
-rename 'y/A-Z/a-z/' *jpg 
+        !  Hint: add -v (--verbose) to make it verbose or i to ignore 
 
-rename 'y/0-9/999/' *jpg 
+     rm -rf ./(Remove Dir with all files + force)
 
-rename 's/\.jpeg$/.jpg/' *  (Rename any files with the extension ".jpeg" to have the extension ".jpg.")
+     rm -rf dir1 dir2 - delete dir1 and dir2 directories with all theirs content recursively(including subfolders and their content)
 
-find -type f -name '*.jpg' | rename 's/holiday/money/' - for all files with ext. ".jpg",IF they contain the string "holiday" replace it with "money". For insance this command would rename the file "ourholiday001.jpg" to "ourmoney001.jpg". 
+     rm ./filename or all files in current directory also may be deleted type of files etc 
 
-rename 's/\.bak$//' *.bak - Rename all files matching "*.bak" to strip the file name of its extension. For instance, this command would rename the file "project.bak" to "project".
+     rm ./dir/*.jpg
 
-rename ./Dir/'y/A-Z/a-z/' * - Rename files such that all uppercase letters are changed to their lowercase equivalents.
+     rmdir ./(remove empty dir) 
+
+*
+
+     find . -type f -exec ls -s {} \; | sort -n -r | head -5    - find top 5 big files
+
+     find . -type f -exec ls -s {} \; | sort -n | head -5    - find top 5 small files
+
+     find . -maxdepth 3 -empty -not -name ".*" - lists only NOT hidden empty files in next 3 levels from ./
+
+     find -maxdepth 4 -not -iname "NAME" - invert matching results 
+
+     find -maxdepth 2 -iname NameOfFile  - will control the serch depth
+
+     find -mindepth 3 -maxdepth 5 -iname NameOfFile  - (search only on 3 to 5 levels from root)
+
+     find -iname ( will be Ignoring Case)
+
+     find /Dir/Dir2 -name '*.jpg' - to find all files that have extansion *.jpg in target directory
+
+     find -type f -name '*.jpg' | rename 's/\string1/string2/' 
+
+     find ./Dir/ -name 'String*.jpg' 
+
+     find -type f  -name '1450648861.jpg' 
+
+     find /usr/bin -type f -atime +100 - search in /usr/bin for all files that haven't been used for more than 100 days.
+
+     find ./'Kate <3' -type f -atime -10 - find all files are last used less than 10 days ago.
+     
+     find /usr/bin -type f -mtime -10 - search in /usr/bin for all files that have been created or modified in last 10 days.
+
+     find ./dir/dir2 -name \*.jpg -print('print' is active as default option)
+
+     find ~/1*/**/ -type f -name '*hd*' (the example of inetresting syntax)
 
 
 
-https://www.computerhope.com/unix/rename.htm
+     ? - one any symbol 
+
+     * - any string of symbols 
+
+     '*999*' 
+
+     '?*999.png' 
+
+     dir/*
+
+     '/**' = '/*/*.../n' 
+
+*
+
+     rename 'y/A-Z/a-z/' *jpg 
+
+     rename 'y/0-9/999/' *jpg 
+
+     rename 's/\.jpeg$/.jpg/' *  (Rename any files with the extension ".jpeg" to have the extension ".jpg.")
+
+     find -type f -name '*.jpg' | rename 's/holiday/money/' - for all files with ext. ".jpg",IF they contain the string "holiday" replace it with "money". For insance this command would rename the file "ourholiday001.jpg" to "ourmoney001.jpg". 
+
+     rename 's/\.bak$//' *.bak - Rename all files matching "*.bak" to strip the file name of its extension. For instance, this command would rename the file "project.bak" to "project".
+
+     rename ./Dir/'y/A-Z/a-z/' * - Rename files such that all uppercase letters are changed to their lowercase equivalents.
+
+
+
+     https://www.computerhope.com/unix/rename.htm
 
 *
 
 
-df -h - displays the information about mounted partitions and their total space amount (+ used and free space)
+     df -h - displays the information about mounted partitions and their total space amount (+ used and free space)
 
 *
 
-du - estimate file space usage 
+     du - estimate file space usage 
 
-du -sh dir1 - calculate and displays the amount of space is used by dir1 
-
-*
-
-lsblk - partition manager 
-
-lsblk -f  - display partition type and used space in % 
+     du -sh dir1 - calculate and displays the amount of space is used by dir1 
 
 *
 
-df -m - show all disk space (display in Mb)
+     lsblk - partition manager 
+
+     lsblk -f  - display partition type and used space in % 
 
 *
 
-fdisk - changing of the disk partition (it's DANGEROUS one)
-
-fdisk -l - display partitions 
+     df -m - show all disk space (display in Mb)
 
 *
 
-fsck - checking a file sistem for errors (it may causes some damage)
+     fdisk - changing of the disk partition (it's DANGEROUS one)
+
+     fdisk -l - display partitions 
 
 *
 
-parted - partition manipulation program
+     fsck - checking a file sistem for errors (it may causes some damage)
 
 *
 
-findmnt - display target mount point for all filesystems 
+     parted - partition manipulation program
 
 *
 
-rsync -a /home/apps /backup - synchronize contents in /home/apps directory with /backup directory 
-
-
-
-
-
-
-
-
-
-
-*********/ PROCESSES AND MEMORY /*********
+     findmnt - display target mount point for all filesystems 
 
 *
 
-renice 19 PID - makes a process run with very low priority (CPU time for a process)
+     rsync -a /home/apps /backup - synchronize contents in /home/apps directory with /backup directory 
 
 *
 
-bg - run jobs in the background (bg process can't handle stdin(from input devices) and take it to the terminal); there could be many of them using one terminal(tty)
-
-fg - run jobs in the foreground (fg process can handle stdin(from input devices) and take it to the terminal) There could be the only using terminal(tty) at one time 
-
-(ctrl + Z  to stop) 
 
 
-commandName -run a command bin-file (firefox for example) 
 
-commandName & - run a command in background 
 
-%n & - put a process "n" in background without stopping it 
 
-%n - put a command "n" in foreground 
+
+
+
+**/ PROCESSES AND MEMORY /**
 
 *
 
-exec - execute commands and open, close, or copy file descriptors
+     renice 19 PID - makes a process run with very low priority (CPU time for a process)
 
 *
 
-fork - create a child process (new process with a given PPID + ) 
+     bg - run jobs in the background (bg process can't handle stdin(from input devices) and take it to the terminal); there could be many of them using one terminal(tty)
+
+     fg - run jobs in the foreground (fg process can handle stdin(from input devices) and take it to the terminal) There could be the only using terminal(tty) at one time 
+
+     (ctrl + Z  to stop) 
+
+
+     commandName -run a command bin-file (firefox for example) 
+
+     commandName & - run a command in background 
+
+     %n & - put a process "n" in background without stopping it 
+
+     %n - put a command "n" in foreground 
 
 *
 
-loop - loop devices (or processes ) 
+     exec - execute commands and open, close, or copy file descriptors
 
 *
 
-xargs - executes commands from standard input 
+     fork - create a child process (new process with a given PPID + ) 
 
 *
 
-pidof NAME - find the process ID of a running program
+     loop - loop devices (or processes ) 
 
 *
 
-pidstat - report statistics for Linux tasks with PID,CPU,UID and name of commands are involved
+     xargs - executes commands from standard input 
 
 *
 
-free -m/h - display some information about total,free and used RAM in Mb/human-readable
+     pidof NAME - find the process ID of a running program
 
 *
 
-pgrep name - get a process PID 
+     pidstat - report statistics for Linux tasks with PID,CPU,UID and name of commands are involved
 
 *
 
-Xorg - X server 
-
-xserver - X Window System display server 
-
+     free -m/h - display some information about total,free and used RAM in Mb/human-readable
 
 *
 
-xdg-open - opens a file or URL in user's preferred application
+     pgrep name - get a process PID 
 
-xdg-desktop-menu (1) - command line tool for (un)installing desktop menu items
+*
+
+     Xorg - X server 
+
+     xserver - X Window System display server 
 
 
 *
 
-xterm - start X terminal in a new window 
+     xdg-open - opens a file or URL in user's preferred application
+
+     xdg-desktop-menu (1) - command line tool for (un)installing desktop menu items
 
 *
 
-xmessage - display a message in x window 
+     xterm - start X terminal in a new window 
 
 *
 
-xwininfo - xproperty displayer 
-
-xprop - property displayer for X 
+     xmessage - display a message in x window 
 
 *
 
-xlsclients -l
+     xwininfo - xproperty displayer 
+
+     xprop - property displayer for X 
 
 *
 
-xinput --list 
-
-xinput --list-props 8 (device ID) 
-
-xinput --set-prop (dangerous one )
+     xlsclients -l
 
 *
 
-xmodmap (run carefully) - show or change the current keybord shortcuts for the X environment
+     xinput --list 
 
-setxkbmap (dangerous one)) -set a new keybord shortcuts for the X environment 
+     xinput --list-props 8 (device ID) 
+
+     xinput --set-prop (dangerous one )
+
+*
+
+     xmodmap (run carefully) - show or change the current keybord shortcuts for the X environment
+
+     setxkbmap (dangerous one)) -set a new keybord shortcuts for the X environment 
 
 * 
 
-xev
+     xev
 
-xev -id (ID) - where ID would has been taken from xwininfo output 
-
-* 
-
-startx - initialize an X session
-
-startx - :1 ( create new X -session)
+     xev -id (ID) - where ID would has been taken from xwininfo output 
 
 * 
 
-jobs - display working programms
+     startx - initialize an X session
 
-pstree - makes a tree of processes depends
+     startx - :1 ( create new X -session)
 
-ps ux - to check all the processes running under a user 
+* 
 
-
-
-
-
-ps -eafw -!! ADD DETAILED EXPlANATION ABOUT FLAGS in details !!
-
- отобразить запущенные процессы, используемые ими ресурсы и другую полезную информацию (единожды) 
-
-
-
-
-
-
-ps -e -o pid,args --forest -  display all processes with their PIDs as a tree.
-
-ps -f - display full running processes with their PID's and PPD's and also UID's
-
-ps -aj (all jobs)
-
-ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head -display top 10 processses by using memory and cpu 
-
-ps --ppid ${number} - gives us the processes running on bash shell with PID ${number}
+     jobs - display working programms
 
 *
 
-top - displays processes, RAM, CPU load and other information with live updating in a terminal 
+     pstree - makes a tree of processes depends
+
+     ps ux - to check all the processes running under a user 
+
+
+
+
+
+     ps -eafw -!! ADD DETAILED EXPlANATION ABOUT FLAGS in details !!
+
+     отобразить запущенные процессы, используемые ими ресурсы и другую полезную информацию (единожды) 
+
+
+
+
+
+
+     ps -e -o pid,args --forest -  display all processes with their PIDs as a tree.
+
+     ps -f - display full running processes with their PID's and PPD's and also UID's
+
+     ps -aj (all jobs)
+
+     ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head -display top 10 processses by using memory and cpu 
+
+     ps --ppid ${number} - gives us the processes running on bash shell with PID ${number}
+
+*
+
+     top - displays processes, RAM, CPU load and other information with live updating in a terminal 
 
 * 
 
-htop - displays processes, RAM, CPU load and other information with live updating in a terminal. Pseudo-graphical 
+     htop - displays processes, RAM, CPU load and other information with live updating in a terminal. Pseudo-graphical 
 
 *
-    
-kill -9 PIDnumber /OR/ kill -kill PIDnumber - kill a process unsafelly 
+     
+     kill -9 PIDnumber /OR/ kill -kill PIDnumber - kill a process unsafelly 
 
-kill PIDnumber(because of the default is -TERM) /OR/ kill -TERM PIDnumber - kill a process correctly.
+     kill PIDnumber(because of the default is -TERM) /OR/ kill -TERM PIDnumber - kill a process correctly.
 
-kill -9 -1 - kill all processes you can kill(except the kill process itself and init)
+     kill -9 -1 - kill all processes you can kill(except the kill process itself and init)
 
-killall -9 Viber
+     killall -9 Viber
 
 *   
 
-*
+     systemd-analyze - display how much time takes the system for the boot.
 
-systemd-analyze - display how much time takes the system for the boot.
-
-systemd-analyze blame - the same to the above but make a list of services 
+     systemd-analyze blame - the same to the above but make a list of services 
 
 *
 
-         WARNING! There're  differences: 
-systemctl (1)        - Control the systemd system and service manager
+          WARNING! There're  differences: 
+     systemctl (1)        - Control the systemd system and service manager
 
-sysctl (8)           - configure kernel parameters at runtime
-sysctl (2)           - read/write system parameters
-@
-sudo systemctl list-units --type service
+     sysctl (8)           - configure kernel parameters at runtime
+     sysctl (2)           - read/write system parameters
+     @
+     sudo systemctl list-units --type service
 
-sudo systemctl enable/disable service(with it's daemons)
+     sudo systemctl enable/disable service(with it's daemons)
 
-_____(List : 
+     _____(List : 
 
-    disabled: bluetooth.service (!)
-_____)   
+     disabled: bluetooth.service (!)
+     _____)   
 
-sudo sysctl vm.swapiness - displays a current rate of swapining
+     sudo sysctl vm.swapiness - displays a current rate of swapining
 
-sudo systcl vm.vfs_cashe_pressure - displays a current value of holding a cash-data
-
-*
-
-sudo sync; echo 1 > /proc/sys/vm/drop_cashes - cleaning of page cash
-
-sudo echo > 200 
-
-
-
-*********/ NETWORKING /*********
+     sudo systcl vm.vfs_cashe_pressure - displays a current value of holding a cash-data
 
 *
 
-hosts - static table lookup for hostnames
+     sudo sync; echo 1 > /proc/sys/vm/drop_cashes - cleaning of page cash
+
+     sudo echo > 200 
+
+
+
+**/ NETWORKING /**
 
 *
 
-telnet - UI to Telnet server
+     hosts - static table lookup for hostnames
 
 *
 
-dig 
+     telnet - UI to Telnet server
 
 *
 
-tracerout 
+     dig 
 
 *
 
-ssh - OpenSSH remote login client
+     tracerout 
+
+*
+
+     ssh - OpenSSH remote login client
 
 
 *
 
-nmap
+     nmap
 
 *
 
-netstat - netstat - Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships
-Netstat  prints  information about the Linux networking subsystem.  The type of information printed is controlled by the first argument.
+     netstat - netstat - Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships
+     Netstat  prints  information about the Linux networking subsystem.  The type of information printed is controlled by the first argument.
 
-netstat -antu
+     netstat -antu
 
-netstat -pnltu - displays all active listening ports 
+     netstat -pnltu - displays all active listening ports 
 
 *
-wpa_supplicant 
-
-dhclient 
-
-iwconfig 
+     wpa_supplicant 
 
 *
 
-rfkill - tool for enabling and disabling wireless devices 
+     dhclient 
 
 *
 
-ip a
-
-ip n 
-
-ip r
-
-ip link show
-
-ip address show 
-
-ip link set dev Interface up ----> ip rout add default via 192.168.102.1(an example)
-
-ifup/ifdown 
-
-sudo ifconfig wlp3s0 down/up 
-
-ping c1(not a "L" letter) 192.186.1.1(an example) - display the reachability of the IP address
-
-tracerout www.ru -n 
-
-ip address a(add???) 192.168.102.125/24 broadcast 192.168.102.255 dev wlp3s0 - (an example of adding the IP after turning the state of an interface UP/DOWN)
+     rfkill - tool for enabling and disabling wireless devices 
 
 *
 
-telnet 192.168.102.1 112(an example)
+     ip a
+
+     ip n 
+
+     ip r
+
+     ip link show
+
+     ip address show 
+
+     ip link set dev Interface up ----> ip rout add default via 192.168.102.1(an example)
+
+     ifup/ifdown 
+
+     sudo ifconfig wlp3s0 down/up 
+
+*
+     ping c1(not a "L" letter) 192.186.1.1(an example) - display the reachability of the IP address
 
 *
 
-ss - is  used  to  dump socket statistics. It allows showing information similar to netstat.  It can display more TCP and state informations than other tools
+     tracerout www.ru -n 
+
 
 *
 
-echo 'wget -c http://www.example.com/files.iso' | at 09:00 - to schedule a download at 9:00(am)
+     ip address a(add???) 192.168.102.125/24 broadcast 192.168.102.255 dev wlp3s0 - (an example of adding the IP after turning the state of an interface UP/DOWN)
 
 *
 
-wget file_name - downloads a file from an online source 
-
-wget -r http://www.example.com - to dowload a content from example.com recursively
- 
-wget -c http://www.example.com/file.iso - to download a file from example.com with the ability to stop it anytime you wish and then continue again later
+     telnet 192.168.102.1 112(an example)
 
 *
 
-host google.com  - performs an IP lookup for the domain name 
+     ss - is  used  to  dump socket statistics. It allows showing information similar to netstat.  It can display more TCP and state informations than other tools
 
 *
 
-whois domain - retrieves more information about a domain name 
+     echo 'wget -c http://www.example.com/files.iso' | at 09:00 - to schedule a download at 9:00(am)
 
 *
 
-dig domain - retrieves DNS information about the domain name 
+     wget file_name - downloads a file from an online source 
 
-dig -x host - performs reverse lookup on a domain 
+     wget -r http://www.example.com - to dowload a content from example.com recursively
+     
+     wget -c http://www.example.com/file.iso - to download a file from example.com with the ability to stop it anytime you wish and then continue again later
 
+*
 
-egrep "^(ftp|http|smtp|ssh).*tcp" /etc/services 
+     host google.com  - performs an IP lookup for the domain name 
 
+*
 
+     whois domain - retrieves more information about a domain name 
 
-*********/ VI AND VIM /*********
+*
 
-https://devhints.io/vim - vim cheatsheet 
+     dig domain - retrieves DNS information about the domain name 
 
-https://devhints.io/vimscript  - integration in automation and scripting using Vim 
+     dig -x host - performs reverse lookup on a domain 
 
-:help  "object"
-set "option" (set showmode)
-i - insert
-a - append
-o - open(new line + insert)
-:w(rite) ./File_name
-:wq(write +quit
-Esc
-"Ctrl + C" = terminate  a current working command
-gg - go to the begin of the text
-G - go to the end of the text
-^ - go to the begin of the line 
-$ - go to the end of the line 
-( - go to the begin of the sentence
-) - go to the end of the sentence
-/ - search straight directed from the cursor position 
-? - search back directed from the cursor position 
-c - change(for example "c)" - change all words till the begin of the current line or another example of usage: "c5w" - means change the last 5 words )
-d - delete (has the same usage in manner like above)
-dd - delete  the current line 
-y - yank (kinda like a copy).It has the same usage like was described above.
-p - put (a data was copied ) 
-. - means the current line (where's the cursor now)
-$ - the last line 
-% - a whole document 
+*
 
-_________#some examples of usage:
- :s/\.$/.../ - means changing of the s(ubstitute) to value after "/" thus all symbols "." in current line are going to be replaced to "..."
- :/Eample1/,$d Enter
+     egrep "^(ftp|http|smtp|ssh).*tcp" /etc/services 
 
 
 
+**/ VI + VIM /**
 
- 9)*********/ OTHER /********* 
+     https://devhints.io/vim - vim cheatsheet 
 
-JUST A HINT :  rename kernels I like the most and store them into the specific folder(don't forget to suggest them custom names that will represent date, kernel version and a build source(e.g. community, cannonical or smh else )
+     https://devhints.io/vimscript  - integration in automation and scripting using Vim 
+
+     :help  "object"
+     set "option" (set showmode)
+     i - insert
+     a - append
+     o - open(new line + insert)
+     :w(rite) ./File_name
+     :wq(write +quit
+     Esc
+     "Ctrl + C" = terminate  a current working command
+     gg - go to the begin of the text
+     G - go to the end of the text
+     ^ - go to the begin of the line 
+     $ - go to the end of the line 
+     ( - go to the begin of the sentence
+     ) - go to the end of the sentence
+     / - search straight directed from the cursor position 
+     ? - search back directed from the cursor position 
+     c - change(for example "c)" - change all words till the begin of the current line or another example of usage: "c5w" - means change the last 5 words )
+     d - delete (has the same usage in manner like above)
+     dd - delete  the current line 
+     y - yank (kinda like a copy).It has the same usage like was described above.
+     p - put (a data was copied ) 
+     . - means the current line (where's the cursor now)
+     $ - the last line 
+     % - a whole document 
+
+     _________#some examples of usage:
+     :s/\.$/.../ - means changing of the s(ubstitute) to value after "/" thus all symbols "." in current line are going to be replaced to "..."
+     :/Eample1/,$d Enter
 
 
 
 
- groff - front-end for the groff document formatting system
+ **/ OTHER /**
 
- make - utility to maintain and build binaries (packages)
+     JUST A HINT :  rename kernels I like the most and store them into the specific folder(don't forget to suggest them custom names that will represent date, kernel version and a build source(e.g. community, cannonical or smh else )
 
- source - evaluate a file or resource as a Tcl script
+*
+     groff - front-end for the groff document formatting system
+
+*
+     make - utility to maintain and build binaries (packages)
+*
+     source - evaluate a file or resource as a Tcl script
