@@ -15,387 +15,387 @@ CONTENTS:
 
 * 
 
-stty - changes and prints terminal line settings (for the control sequences)
-    stty -a  - prints all 
+     stty - changes and prints terminal line settings (for the control sequences)
+     stty -a  - prints all 
 
 
-bind -l - lists all readlines in Bash session 
-bind -p  - displays all control sequences' keys and their meanings (.inputrc)
+     bind -l - lists all readlines in Bash session 
+     bind -p  - displays all control sequences' keys and their meanings (.inputrc)
 
-+
+     +
 
 
-ctrl + R - to redraw (when control sequences 
+     ctrl + R - to redraw (when control sequences 
 
-ctrl + U - to delete a whole line in terminal 
+     ctrl + U - to delete a whole line in terminal 
 
-ctrl + W - to delete a word (from right to left)
+     ctrl + W - to delete a word (from right to left)
 
-crtl + Z - to stop a process 
+     crtl + Z - to stop a process 
 
-crtl + C  - to abort from a process 
+     crtl + C  - to abort from a process 
 
-ctrl + D - to send an interrupt message 
-
-*
-
-https://devhints.io/bash
+     ctrl + D - to send an interrupt message 
 
 *
 
-stdin (0)
-
-stdout (1)
-
-stderr (2)
-
-
-
-Examples:
-
-  info cat > cat.info 2> cat.stderr 
-
-Merging sources : 
-  2>&1 - tells the terminal to put stderr together with stdout:
-    info cat > cat.info 2>&1 
-  TIP! : to avoid writing "2>&1 file" there's a shortcut "&> file"/">& file"
-  info cat > cat.info 2> /dev/null 
-
-
-; - to restrict commands in a line between each other 
+     https://devhints.io/bash
 
 *
 
-expr - to calculate some integers in terminal 
+     stdin (0)
 
-bc - to calculate ( more powerful one)
+     stdout (1)
 
-*
-
-read -r  - read from std input( -r means that each backslash will be ignored)
-
-*
-
-exec - execute a command/file
-
-execlp - execute a file
-
-*
-
-test -f (file )/ -d (dir) - to test IF a file is a file or dir 
-
-*
-
-info commandName 
-
-man commandName
-
---help / -h
-
-whatis commandName
-
-apropos [keyword] - search for a command/service by keywords or name (into man pages)
+     stderr (2)
 
 
-locate fileName
+
+     Examples:
+
+     info cat > cat.info 2> cat.stderr 
+
+     Merging sources : 
+     2>&1 - tells the terminal to put stderr together with stdout:
+     info cat > cat.info 2>&1 
+     TIP! : to avoid writing "2>&1 file" there's a shortcut "&> file"/">& file"
+     info cat > cat.info 2> /dev/null 
+
+
+     ; - to restrict commands in a line between each other 
 
 *
 
-alias (show all alias)
+     expr - to calculate some integers in terminal 
 
-alias neWname='someCommand'
-
-unalias commandName
-
-unalias -a ( "-a" means all)
-
-alias lf='ls -alF | sort'
+     bc - to calculate ( more powerful one)
 
 *
 
-pwd - print working directory 
+     read -r  - read from std input( -r means that each backslash will be ignored)
 
 *
 
-whereis (object or bash-file)
+     exec - execute a command/file
 
-which commandName - show a full path to binaries of the command 
-
-*
-
-clear - clear a terminal screen
+     execlp - execute a file
 
 *
 
-history - list all used commands ( their number is limited and they are stored in )
+     test -f (file )/ -d (dir) - to test IF a file is a file or dir 
+
+*
+
+     info commandName 
+
+     man commandName
+
+     commandName --help (or) -h
+
+     whatis commandName
+
+     apropos [keyword,command,string] - search for a command/service by keywords or name (into man pages)
+
+*
+
+     locate fileName
+
+*
+
+     alias (show all alias)
+
+     alias neWname='someCommand'
+
+     unalias commandName
+
+     unalias -a ( "-a" means all)
+
+     alias lf='ls -alF | sort'
+
+*
+
+     pwd - print working directory 
+
+*
+
+     whereis (object or bash-file)
+
+     which commandName - show a full path to binaries of the command 
+
+*
+
+     clear - clear a terminal screen
+
+*
+
+     history - list all used commands ( their number is limited and they are stored in )
 
 * 
 
-dmesg - display all dignostic messages from tty1 into a current treminal which is running from Kernel Linux.
+     dmesg - display all dignostic messages from tty1 into a current treminal which is running from Kernel Linux.
 
 *
 
-*NAME OF THE COMMAND* -run a command bin-file (firefox for example) 
+     commandName -run a command bin-file (firefox for example) 
 
-*NAME OF THE COMMAND* & - run a command in a background 
+     commandName & - run a command in a background 
 
+     +
 
-    
+     %jobName & - put a job in background  (not stopping it)
 
-%jobName & - put a job in background  (not stopping it)
-
-%jobName - put a job in foreground 
-
-*
-
-yes - output a string repeatedly until killed 
+     %jobName - put a job in foreground 
 
 *
 
-look - display lines beginning with a given string (look up for a given string or a word in a file)
+     yes - output a string repeatedly until killed 
 
 *
 
-tee  - duplicate stnd input / duplicate pipe content / read from standard input and write into output and        files 
+     look - display lines beginning with a given string (look up for a given string or a word in a file)
 
 *
 
-dircolors - colour setup for ls (perhaps it's useless)
+     tee  - duplicate stnd input / duplicate pipe content / read from standard input and write into output and        files 
 
 *
 
-grep linux file*.{txt,htm*} - search for all strings that contain "linux" in a current directory
+     dircolors - colour setup for ls (perhaps it's useless)
 
-grep -h -v 2017-07  - print lines matching a pattern 
+*
 
-‘-v’
-‘--invert-match’
-     Invert the sense of matching, to select non-matching lines.  (‘-v’
-     is specified by POSIX.)
+     grep linux file*.{txt,htm*} - search for all strings that contain "linux" in a current directory
 
-‘-w’
-‘--word-regexp’
-     Select only those lines containing matches that form whole words.
-     The test is that the matching substring must either be at the
-     beginning of the line, or preceded by a non-word constituent
-     character.  Similarly, it must be either at the end of the line or
-     followed by a non-word constituent character.  Word-constituent
-     characters are letters, digits, and the underscore.  This option
-     has no effect if ‘-x’ is also specified.
+     grep -h -v 2017-07  - print lines matching a pattern 
 
-‘-L’
-‘--files-without-match’
-     Suppress normal output; instead print the name of each input file
-     from which no output would normally have been printed.  The
-     scanning of each file stops on the first match.
+          ‘-v’
+          ‘--invert-match’
+               Invert the sense of matching, to select non-matching lines.  (‘-v’
+               is specified by POSIX.)
 
-‘-l’
-‘--files-with-matches’
-     Suppress normal output; instead print the name of each input file
-     from which output would normally have been printed.  The scanning
-     of each file stops on the first match.  (‘-l’ is specified by
-     POSIX.)
+          ‘-w’
+          ‘--word-regexp’
+               Select only those lines containing matches that form whole words.
+               The test is that the matching substring must either be at the
+               beginning of the line, or preceded by a non-word constituent
+               character.  Similarly, it must be either at the end of the line or
+               followed by a non-word constituent character.  Word-constituent
+               characters are letters, digits, and the underscore.  This option
+               has no effect if ‘-x’ is also specified.
 
-‘-n’
-‘--line-number’
-     Prefix each line of output with the 1-based line number within its
-     input file.  (‘-n’ is specified by POSIX.)
+          ‘-L’
+          ‘--files-without-match’
+               Suppress normal output; instead print the name of each input file
+               from which no output would normally have been printed.  The
+               scanning of each file stops on the first match.
 
-‘-q’
-   ‘--quiet’
-   ‘--silent’
-     Quiet; do not write anything to standard output.  Exit immediately
-     with zero status if any match is found, even if an error was
-     detected.  Also see the ‘-s’ or ‘--no-messages’ option.  (‘-q’ is
-     specified by POSIX.)
+          ‘-l’
+          ‘--files-with-matches’
+               Suppress normal output; instead print the name of each input file
+               from which output would normally have been printed.  The scanning
+               of each file stops on the first match.  (‘-l’ is specified by
+               POSIX.)
+
+          ‘-n’
+          ‘--line-number’
+               Prefix each line of output with the 1-based line number within its
+               input file.  (‘-n’ is specified by POSIX.)
+
+          ‘-q’
+          ‘--quiet’
+          ‘--silent’
+               Quiet; do not write anything to standard output.  Exit immediately
+               with zero status if any match is found, even if an error was
+               detected.  Also see the ‘-s’ or ‘--no-messages’ option.  (‘-q’ is
+               specified by POSIX.)
 
 
-‘-s’
-    ‘--no-messages’
-     Suppress error messages about nonexistent or unreadable files.
-     Portability note: unlike GNU ‘grep’, 7th Edition Unix ‘grep’ did
-     not conform to POSIX, because it lacked ‘-q’ and its ‘-s’ option
-     behaved like GNU ‘grep’’s ‘-q’ option.(1)  USG-style ‘grep’ also
-     lacked ‘-q’ but its ‘-s’ option behaved like GNU ‘grep’’s.
-     Portable shell scripts should avoid both ‘-q’ and ‘-s’ and should
-     redirect standard and error output to ‘/dev/null’ instead.  (‘-s’
-     is specified by POSIX.)
+          ‘-s’
+          ‘--no-messages’
+               Suppress error messages about nonexistent or unreadable files.
+               Portability note: unlike GNU ‘grep’, 7th Edition Unix ‘grep’ did
+               not conform to POSIX, because it lacked ‘-q’ and its ‘-s’ option
+               behaved like GNU ‘grep’’s ‘-q’ option.(1)  USG-style ‘grep’ also
+               lacked ‘-q’ but its ‘-s’ option behaved like GNU ‘grep’’s.
+               Portable shell scripts should avoid both ‘-q’ and ‘-s’ and should
+               redirect standard and error output to ‘/dev/null’ instead.  (‘-s’
+               is specified by POSIX.)
 
-‘-H’
-   ‘--with-filename’
-     Print the file name for each match.  This is the default when there
-     is more than one file to search.
+          ‘-H’
+          ‘--with-filename’
+               Print the file name for each match.  This is the default when there
+               is more than one file to search.
 
-‘-h’
-    ‘--no-filename’
-     Suppress the prefixing of file names on output.  This is the
-     default when there is only one file (or only standard input) to
-     search.
+          ‘-h’
+          ‘--no-filename’
+               Suppress the prefixing of file names on output.  This is the
+               default when there is only one file (or only standard input) to
+               search.
 
+               
+*    
+
+     wc - word calculator 
+     - w (words
+     - l (lines)
+     - c (bytes) 
+     - m (chars) print the character counts 
      
- *    
-
-wc - word calculator 
-   - w (words
-   - l (lines)
-   - c (bytes) 
-   - m (chars) print the character counts 
-   
 *
 
-comm - select or reject lines common to two files / compare two sorted files line by line (standart output is 3 columnes (unique for 1st file, unique for 2nd and lines that appear in both files) 
+     comm - select or reject lines common to two files / compare two sorted files line by line (standart output is 3 columnes (unique for 1st file, unique for 2nd and lines that appear in both files) 
 
-comm -12 file1 file2  - Prints only lines in both file1 and file2
+     comm -12 file1 file2  - Prints only lines in both file1 and file2
 
-comm -3 file1 file2 - Prints only lines in file1 not in file2, and vice versa
+     comm -3 file1 file2 - Prints only lines in file1 not in file2, and vice versa
 
 *
 
-uniq - report or omit repeated lines
+     uniq - report or omit repeated lines
 
 *
 
-diff -r - to compare one dir to another (recursively any subdirs found ) 
- -s reports when two files are the same 
- -q brief. Reports only when files differ 
- -y side-by-side output in two columnes 
- -i ignore case differents in files 
+     diff -r - to compare one dir to another (recursively any subdirs found ) 
+     -s reports when two files are the same 
+     -q brief. Reports only when files differ 
+     -y side-by-side output in two columnes 
+     -i ignore case differents in files 
 
-*
-echo "This is test" | cut -f 1 -d ' ' - where space is used as a delimiter
+     *
+     echo "This is test" | cut -f 1 -d ' ' - where space is used as a delimiter
 
-cut -d, -f 2 ./dir/file  wc ( cut - remove sections from each line of files )
+     cut -d, -f 2 ./dir/file  wc ( cut - remove sections from each line of files )
 
-*
+     *
 
-split - split files into pieces 
+     split - split files into pieces 
 
-*
+     *
 
-sed - stream editor for filtering and transforming text
-
-
-https://www.geeksforgeeks.org/sed-command-in-linux-unix-with-examples/
-
-https://www.geeksforgeeks.org/sed-command-linux-set-2/?ref=rp
-
-*
-
-shred - overwrite a file to hide its contents, and optionally delete it 
-
-*
-
-string - shows only those lines that can be read as text (plain, probably)
-
-hexdump  - similar to the above one 
-
-*
-
-cat - concatenate files and and print on the standard output 
-
-cat /dev/null > file.txt - purge file's content 
-
-*
-
-tac - reversed output from cat 
-
-*
-
-head -n 5 ./dir/name.txt
-
-*
-
-tail -n 7 ./dir/name.txt
-
-*
-
-less ./dir/file
- 
-less seasonal/spring.csv seasonal/summer.csv - to view those two files in that order. Press spacebar to page down, :n to go to the second file, and :q to quit.
-
-*
-
-sort -n -r 
-
-sort < file > newSortedFile ; mv newSortedFile file 
-
-*
-file  
-
-file ./bin - to determine type of the FILE CONTENT, not just file extension 
-
-*
+     sed - stream editor for filtering and transforming text
 
 
+     https://www.geeksforgeeks.org/sed-command-in-linux-unix-with-examples/
+
+     https://www.geeksforgeeks.org/sed-command-linux-set-2/?ref=rp
+
+     *
+
+     shred - overwrite a file to hide its contents, and optionally delete it 
+
+     *
+
+     string - shows only those lines that can be read as text (plain, probably)
+
+     hexdump  - similar to the above one 
+
+     *
+
+     cat - concatenate files and and print on the standard output 
+
+     cat /dev/null > file.txt - purge file's content 
+
+     *
+
+     tac - reversed output from cat 
+
+     *
+
+     head -n 5 ./dir/name.txt
+
+     *
+
+     tail -n 7 ./dir/name.txt
+
+     *
+
+     less ./dir/file
+     
+     less seasonal/spring.csv seasonal/summer.csv - to view those two files in that order. Press spacebar to page down, :n to go to the second file, and :q to quit.
+
+     *
+
+     sort -n -r 
+
+     sort < file > newSortedFile ; mv newSortedFile file 
+
+     *
+     file  
+
+     file ./bin - to determine type of the FILE CONTENT, not just file extension 
+
+     *
 
 
 
 
-You can add an attribute by using "$" 
-
-The variable "$?" keeps last used command's exit-code (0, 1 etc) 
-___1 example :
-
-LEVEL="1 ; 2 ; 3 ; 4"
-printf "$i" $LEVEL ( use "$s" for a string of values) 
-
-"0; 1; 2; 3; ;4"  - is output of this 
-
-NOTE! Hence printf didn't interpretered 0,1,2,3,4 as distinct values. The solution is to put the Variable( $LEVEL ) under quotes like this : 
-printf "$s" "$LEVEL" 
-
-____2 example : 
-
-LEVEL=5
-FLAG_MESSAGE="I've done with ""$LEVEL"".I deserve appreciation" ( or ${$LEVEL} to get the "LEVEL 5" as output) 
-printf "$s" "$FLAG_MESSAGE" 
-
-"I've done with LEVEL5. I deserve appreciation" - is the output 
-
-also "$q" to ensure every space between words in output and "%c" for a single character : printf "$c" "\" 
 
 
+     You can add an attribute by using "$" 
 
-export PATH="$PATH:/sbin" - set default directory for futher searching of binaries.
+     The variable "$?" keeps last used command's exit-code (0, 1 etc) 
+     ___1 example :
 
-A= 5 
-B= 3 
+     LEVEL="1 ; 2 ; 3 ; 4"
+     printf "$i" $LEVEL ( use "$s" for a string of values) 
 
-*
-!!! important one 
+     "0; 1; 2; 3; ;4"  - is output of this 
 
-https://stackoverflow.com/questions/4651437/how-do-i-set-a-variable-to-the-output-of-a-command-in-bash?noredirect=1&lq=1
+     NOTE! Hence printf didn't interpretered 0,1,2,3,4 as distinct values. The solution is to put the Variable( $LEVEL ) under quotes like this : 
+     printf "$s" "$LEVEL" 
 
-* 
+     ____2 example : 
 
- VARIABLES: NAME="John" 
- 
- call a variable : 
-    echo "I'm $NAME" 
-     !!!   but '' single quotes override it with a "I'm $NAME" output 
-     !!!  `` acute or back quotes serve only for functions (thus commands also) 
- 
- call a function :  
-    1)echo "I'm in $(pwd)" 
-    2) echo "I'm in `pwd`"
+     LEVEL=5
+     FLAG_MESSAGE="I've done with ""$LEVEL"".I deserve appreciation" ( or ${$LEVEL} to get the "LEVEL 5" as output) 
+     printf "$s" "$FLAG_MESSAGE" 
 
-BRACE EXPANSION:  //  https://wiki.bash-hackers.org/syntax/expansion/brace
-    echo {A,B}.js  ---> "A.js  B.js"
-    echo {1..5} ---> "1 2 3 4 5" // for ranges 
-    echo {A, B} ---> "A B" 
-    echo {str1,...,str2,str3} // for string list
-    
-echo {{A..Z},{a..z}} ---> The whole latin alphabet 
+     "I've done with LEVEL5. I deserve appreciation" - is the output 
 
-mkdir /home/bash/test/{foo,bar,baz,cat,dog}
+     also "$q" to ensure every space between words in output and "%c" for a single character : printf "$c" "\" 
 
-for i in {0..10}; do printf "%s\n"  "$i"; done  -->
-1
-2
-3
-4
-...
-10
+
+
+     export PATH="$PATH:/sbin" - set default directory for futher searching of binaries.
+
+     A= 5 
+     B= 3 
+
+     *
+     !!! important one 
+
+     https://stackoverflow.com/questions/4651437/how-do-i-set-a-variable-to-the-output-of-a-command-in-bash?noredirect=1&lq=1
+
+     * 
+
+     VARIABLES: NAME="John" 
+     
+     call a variable : 
+     echo "I'm $NAME" 
+          !!!   but '' single quotes override it with a "I'm $NAME" output 
+          !!!  `` acute or back quotes serve only for functions (thus commands also) 
+     
+     call a function :  
+     1)echo "I'm in $(pwd)" 
+     2) echo "I'm in `pwd`"
+
+     BRACE EXPANSION:  //  https://wiki.bash-hackers.org/syntax/expansion/brace
+     echo {A,B}.js  ---> "A.js  B.js"
+     echo {1..5} ---> "1 2 3 4 5" // for ranges 
+     echo {A, B} ---> "A B" 
+     echo {str1,...,str2,str3} // for string list
+     
+     echo {{A..Z},{a..z}} ---> The whole latin alphabet 
+
+     mkdir /home/bash/test/{foo,bar,baz,cat,dog}
+
+     for i in {0..10}; do printf "%s\n"  "$i"; done  -->
+     1
+     2
+     3
+     4
+     ...
+     10
 
 
 
