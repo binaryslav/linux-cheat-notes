@@ -319,17 +319,12 @@ CONTENTS:
 
      sort < file > newSortedFile ; mv newSortedFile file 
 
-     *
+*
      file  
 
      file ./bin - to determine type of the FILE CONTENT, not just file extension 
 
-     *
-
-
-
-
-
+*
 
      You can add an attribute by using "$" 
 
@@ -361,12 +356,12 @@ CONTENTS:
      A= 5 
      B= 3 
 
-     *
+*
      !!! important one 
 
      https://stackoverflow.com/questions/4651437/how-do-i-set-a-variable-to-the-output-of-a-command-in-bash?noredirect=1&lq=1
 
-     * 
+* 
 
      VARIABLES: NAME="John" 
      
@@ -396,7 +391,6 @@ CONTENTS:
      4
      ...
      10
-
 
 
 
