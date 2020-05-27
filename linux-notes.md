@@ -256,64 +256,64 @@ CONTENTS:
 *
 
      diff -r - to compare one dir to another (recursively any subdirs found ) 
-     -s reports when two files are the same 
-     -q brief. Reports only when files differ 
-     -y side-by-side output in two columnes 
-     -i ignore case differents in files 
+          -s reports when two files are the same 
+          -q brief. Reports only when files differ 
+          -y side-by-side output in two columnes 
+          -i ignore case differents in files 
 
-     *
+*
      echo "This is test" | cut -f 1 -d ' ' - where space is used as a delimiter
 
      cut -d, -f 2 ./dir/file  wc ( cut - remove sections from each line of files )
 
-     *
+*
 
      split - split files into pieces 
 
-     *
+*
 
      sed - stream editor for filtering and transforming text
 
 
-     https://www.geeksforgeeks.org/sed-command-in-linux-unix-with-examples/
+          https://www.geeksforgeeks.org/sed-command-in-linux-unix-with-examples/
 
-     https://www.geeksforgeeks.org/sed-command-linux-set-2/?ref=rp
+          https://www.geeksforgeeks.org/sed-command-linux-set-2/?ref=rp
 
-     *
+*
 
      shred - overwrite a file to hide its contents, and optionally delete it 
 
-     *
+*
 
      string - shows only those lines that can be read as text (plain, probably)
 
      hexdump  - similar to the above one 
 
-     *
+*
 
      cat - concatenate files and and print on the standard output 
 
      cat /dev/null > file.txt - purge file's content 
 
-     *
+     +
 
-     tac - reversed output from cat 
+     tac - concatenate and print files in reverse / opposite to "cat" command 
 
-     *
+*
 
      head -n 5 ./dir/name.txt
 
-     *
+*
 
      tail -n 7 ./dir/name.txt
 
-     *
+*
 
      less ./dir/file
      
      less seasonal/spring.csv seasonal/summer.csv - to view those two files in that order. Press spacebar to page down, :n to go to the second file, and :q to quit.
 
-     *
+*
 
      sort -n -r 
 
