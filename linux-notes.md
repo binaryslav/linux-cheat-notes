@@ -317,7 +317,7 @@ CONTENTS:
 
      sort -n -r 
 
-     sort < file > newSortedFile ; mv newSortedFile file 
+     sort fileName  newSortedFile ; mv newSortedFile fileName 
 
 *
      file  
@@ -516,9 +516,9 @@ CONTENTS:
 
 *
 
-     Locale
+     Locale (lists locale(s) that are currently in use)
 
-     Locale -a 
+     Locale -a (displays all variables and their values)
 
      cat /etc/locale.gen
 
