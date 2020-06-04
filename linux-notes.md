@@ -10,6 +10,7 @@ CONTENTS:
 9)Other
 
 
+
 **/ BASH /**
 
 
@@ -567,15 +568,6 @@ CONTENTS:
 *
 
 
- 
-
- 
- 
-
-
-
-
-
 **/ HARDWARE AND FIRMWARE /**
 
 *
@@ -603,8 +595,6 @@ CONTENTS:
      grub-probe - probe device information for GRUB 
 
      grub-mkrescue - make a GRUB rescue image 
-
-
 
 *
 
@@ -663,16 +653,6 @@ CONTENTS:
      badblocks -s /dev/xda - tests for unreadable blocks on disk 
 
 * 
-
-
-
-
-
-
-
-
-
-
 
 
 **/ PACKAGE MANAGERS /**
