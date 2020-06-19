@@ -26,6 +26,10 @@ CONTENTS:
      +
 
 
+     ctrl + alt + d  - minimize all windows (ubuntu)
+
+     ctrl + alt + t  - open a terminal window (ubuntu)
+
      ctrl + R - to redraw (when control sequences 
 
      ctrl + U - to delete a whole line in terminal 
@@ -567,6 +571,26 @@ CONTENTS:
 
 *
 
+Handling Cache and used space:
+
+     1)	du -sh ~/.cache/thumbnails
+          then remove
+               
+     2)	sudo du -sh /var/cache/apt
+          sudo apt-get clean
+          
+     3) 	(unecessary dependencies and orphan packages)
+               sudo apt-get autoremove
+
+
+     4)
+          sudo dpkg --list | grep 'linux-image-*'
+          sudo dpkg --list 'linux-image-*'
+
+               then
+          sudo apt-get remove linux-image-VERSION
+
+*
 
 **/ HARDWARE AND FIRMWARE /**
 
@@ -994,7 +1018,7 @@ CONTENTS:
 
      du - estimate file space usage 
 
-     du -sh dir1 - calculate and displays the amount of space is used by dir1 
+     du -sh dir1 - calculate and displays the amount of space is used by dir1 (-h for human-readable output and -s for separating by directories)
 
 *
 
