@@ -1,6 +1,5 @@
 # linux-cheat-notes
 A collection of some useful commands that I use in my daily work.
-Please, read Usage Guidlines first
 
 Usage: 
  * Use a list of content for quick navigation through the document(meant to be used: Ctrl + F --> *case sensetive search* to jump directly)
