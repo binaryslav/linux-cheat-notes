@@ -168,10 +168,23 @@ CONTENTS:
      dircolors - colour setup for ls (perhaps it's useless)
 
 *
+     https://stackoverflow.com/questions/1546711/can-grep-show-only-words-that-match-search-pattern
+
+     cat Bookmarks.json | grep -oh "\w*http\w*" | awk '{print $0,"\n"}'
+
+     grep "pattern" /path/to/file | awk '{print $0,"\n"}'  - putting new line between each element of the output
 
      grep linux file*.{txt,htm*} - search for all strings that contain "linux" in a current directory
 
      grep -h -v 2017-07  - print lines matching a pattern 
+
+          -h, --no-filename
+               Suppress the prefixing of file names on output. This is the default
+               when there is only  one  file  (or only standard input) to search.
+
+          -o, --only-matching
+               Print  only  the matched (non-empty) parts of a matching line,
+               with each such part on a separate output line.
 
           ‘-v’
           ‘--invert-match’
@@ -506,6 +519,9 @@ CONTENTS:
      runlevel - displays current running level of system
 
 * 
+     uname -r  - to list a linux kernel in use
+
+     dpkg --list | grep linux-image - to list all installed linux kernels
 
      lsmod - shows which loadable kernel modules are currently loaded
 
@@ -689,7 +705,8 @@ Handling Cache and used space:
 
      1) apt 
 
-          sudo apt add-apt-repository ppa:graphics-drivers/ppa 
+          sudo apt add-apt-repository ppa:graphics-drivers/ppa
+               apt policy - to list all ppas in use.
 
           sudo apt update
 
@@ -837,6 +854,8 @@ Handling Cache and used space:
 
      unzip file1.zip - to unzip and unpack a zip-file 
 
+     unzip -o \*.zip - to extract all files to the current directory and "-o" is used to override the existing directories(that have the same name/were created beforehand)
+
      unrar x file1.rar - to unzip a rar-file
      
      tar -xvf archive.tar -C /tmp - to unzip a file into "/tmp"
@@ -855,6 +874,8 @@ Handling Cache and used space:
      realpath - resolve a pathname (for both symbolic and hard links) 
 
 *
+     ls -S  - sort by file size, largest first
+     ls -Q1  - "1" means listing one file per line; "Q" to enclose entry names in double quotes
 
      ls -a(All files) -R(with a tree of parents subdirectories) -i( show the I-node number of F) -l(shows as a list)  
 
@@ -1107,6 +1128,10 @@ Handling Cache and used space:
 
 *
 
+     cat /proc/PID/cmdline - to find a name of a process by its PID
+
+*
+
      pidstat - report statistics for Linux tasks with PID,CPU,UID and name of commands are involved
 
 *
@@ -1182,7 +1207,7 @@ Handling Cache and used space:
 
      pstree - makes a tree of processes depends
 
-     ps ux - to check all the processes running under a user 
+     ps ux - to check all the processes running under a user
 
 
 
