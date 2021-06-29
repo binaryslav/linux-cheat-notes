@@ -168,9 +168,11 @@ CONTENTS:
      dircolors - colour setup for ls (perhaps it's useless)
 
 *
-     https://stackoverflow.com/questions/1546711/can-grep-show-only-words-that-match-search-pattern
+     https://stackoverflow.com/questions/1546711/can-grep-show-only-words-that-match-search-patternw
 
      cat Bookmarks.json | grep -oh "\w*http\w*" | awk '{print $0,"\n"}'
+
+     grep '}$' - matches \n character or end line in POSIX/GNU
 
      grep "pattern" /path/to/file | awk '{print $0,"\n"}'  - putting new line between each element of the output
 
@@ -333,7 +335,7 @@ CONTENTS:
 
 *
 
-     sort -n -r 
+     sort -n -r
 
      sort fileName  newSortedFile ; mv newSortedFile fileName 
 
@@ -1075,9 +1077,9 @@ Handling Cache and used space:
 
 *
 
+     file fileName.example - shows the information about file content(encoding type)
 
-
-
+*
 
 
 
