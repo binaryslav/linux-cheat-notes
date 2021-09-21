@@ -2,7 +2,7 @@ CONTENTS:
 1)Bash
 2)Session
 3)Hardware and firmware
-4)Package managers(rpm, atp, dpkg, pacman)
+4)Package managers(rpm, apt, dpkg, pacman)
 5)File system and disk space
 6)Processes and memory
 7)Networking
@@ -23,8 +23,9 @@ CONTENTS:
      bind -l - lists all readlines in Bash session 
      bind -p  - displays all control sequences' keys and their meanings (.inputrc)
 
-     +
 
+*    
+     Keybindings:
 
      ctrl + alt + d  - minimize all windows (ubuntu)
 
@@ -41,6 +42,8 @@ CONTENTS:
      crtl + C  - to abort from a process 
 
      ctrl + D - to send an interrupt message 
+
+     Alt + Space (then select "minimize") - minimize a window
 
 *
 
@@ -119,21 +122,33 @@ CONTENTS:
 
 *
 
-     pwd - print working directory 
+     pwd - print working directory
 
 *
 
      whereis (object or bash-file)
 
-     which commandName - show a full path to binaries of the command 
+     which commandName - show a full path to binaries of the command
 
 *
 
      clear - clear a terminal screen
 
 *
+     https://www.howtogeek.com/howto/44997/how-to-use-bash-history-to-improve-your-command-line-productivity/
 
      history - list all used commands ( their number is limited and they are stored in )
+
+     !PATTERN - run the last used command matching the PATTERN
+
+     !PATTERN:p - print the last used command mathching PATTERN without running it
+
+     commandName !$  - to run commandName reusing the first argument passed to the last used command (tip: path to a file/dir)
+               Usage:
+                    touch ~/test.txt
+                    vi !$ (means "vi ~/test.txt")
+
+     commandName !* - to do that reusing all the arguments passed to the last used command
 
 * 
 
@@ -141,19 +156,19 @@ CONTENTS:
 
 *
 
-     commandName -run a command bin-file (firefox for example) 
+     commandName -run a command bin-file (firefox for example)
 
-     commandName & - run a command in a background 
+     commandName & - run a command in a background
 
      +
 
      %jobName & - put a job in background  (not stopping it)
 
-     %jobName - put a job in foreground 
+     %jobName - put a job in foreground
 
 *
 
-     yes - output a string repeatedly until killed 
+     yes - output a string repeatedly until killed
 
 *
 
@@ -161,13 +176,15 @@ CONTENTS:
 
 *
 
-     tee  - duplicate stnd input / duplicate pipe content / read from standard input and write into output and        files 
+     tee  - duplicate stnd input / duplicate pipe content / read from standard input and write into output and        files
 
 *
 
      dircolors - colour setup for ls (perhaps it's useless)
 
 *
+     https://www.opensourceforu.com/2012/06/beginners-guide-gnu-grep-basics/
+
      https://stackoverflow.com/questions/1546711/can-grep-show-only-words-that-match-search-patternw
 
      cat Bookmarks.json | grep -oh "\w*http\w*" | awk '{print $0,"\n"}'
@@ -178,7 +195,7 @@ CONTENTS:
 
      grep linux file*.{txt,htm*} - search for all strings that contain "linux" in a current directory
 
-     grep -h -v 2017-07  - print lines matching a pattern 
+     grep -h -v 2017-07  - print lines matching a pattern
 
           -h, --no-filename
                Suppress the prefixing of file names on output. This is the default
@@ -391,7 +408,7 @@ CONTENTS:
           !!!  `` acute or back quotes serve only for functions (thus commands also) 
      
      call a function :  
-     1)echo "I'm in $(pwd)" 
+     1) echo "I'm in $(pwd)"
      2) echo "I'm in `pwd`"
 
      BRACE EXPANSION:  //  https://wiki.bash-hackers.org/syntax/expansion/brace
@@ -598,7 +615,7 @@ Handling Cache and used space:
           sudo apt-get clean
           
      3) 	(unecessary dependencies and orphan packages)
-               sudo apt-get autoremove
+               sudo apt autoremove --purge
 
 
      4)
@@ -695,6 +712,9 @@ Handling Cache and used space:
      badblocks -s /dev/xda - tests for unreadable blocks on disk 
 
 * 
+     prime-select query - shows which GPU is in use now
+
+     prime-select intel|nvidia|on-demand  - switch a profile for GPU 
 
 
 **/ PACKAGE MANAGERS /**
@@ -940,6 +960,7 @@ Handling Cache and used space:
      cp -R ./dir1 ./dir2 - copy all subdirectories and files of dir1 into dir2
 
 *
+     mv -t /dir file1 file2 file3
 
      mv text1.txt text2.txt ------> ls results: text2.txt only existing
      mv ./Dir1 ./Dir2 - move dir1 into dir2
@@ -1419,32 +1440,54 @@ Handling Cache and used space:
      https://devhints.io/vim - vim cheatsheet 
 
      https://devhints.io/vimscript  - integration in automation and scripting using Vim 
-
+     :/SEARCHPATTERN
      :help  "object"
-     set "option" (set showmode)
-     i - insert
-     a - append
-     o - open(new line + insert)
+   ## Modes
+ 	: - command mode
+	/ - search forward
+	? - search backward 
+	
+
+   ## Movement:
+	gg - go to the begin of the document
+	G  - go to the end of the document
+	^  - go to the begin of the line
+	$  - go to the end of the line
+ 	(  - go to the begin of the sentence
+	)  - go to the end of the sentence
+	h  - cursor left
+	l  - cursor right
+	j  - cursor down
+	k  - cursor up
+	w  - advance a single word
+	b  - go back a single word
+	
+   ## Actions:
+	x - delete the character after the cursor position
+	dw - delete an entire word
+	dd - delete an entire line
+	r - replace a single character
+     	u - undone one action
+	U - undone all actions to the last checkpoint
+     	i - insert
+     	o - open(new line + insert)
+	O - open a line above for adding text
+        a - append
+    	c - change(for example "c)" - change all words till the begin of the current line or another example of usage: "c5w" - means change the last 5 words )
+	d - delete a character
+	y - yank(similar to copying)
+	yy - yank an entire line
+	yw - yank an entire word
+	y$ - yank to the end of the current line
+	p - put data from clipboard
+	. - means the current line(where the cursor is now)	
+	% - the whole document
+
+
      :w(rite) ./File_name
      :wq(write +quit
      Esc
      "Ctrl + C" = terminate  a current working command
-     gg - go to the begin of the text
-     G - go to the end of the text
-     ^ - go to the begin of the line 
-     $ - go to the end of the line 
-     ( - go to the begin of the sentence
-     ) - go to the end of the sentence
-     / - search straight directed from the cursor position 
-     ? - search back directed from the cursor position 
-     c - change(for example "c)" - change all words till the begin of the current line or another example of usage: "c5w" - means change the last 5 words )
-     d - delete (has the same usage in manner like above)
-     dd - delete  the current line 
-     y - yank (kinda like a copy).It has the same usage like was described above.
-     p - put (a data was copied ) 
-     . - means the current line (where's the cursor now)
-     $ - the last line 
-     % - a whole document 
 
      _________#some examples of usage:
      :s/\.$/.../ - means changing of the s(ubstitute) to value after "/" thus all symbols "." in current line are going to be replaced to "..."
