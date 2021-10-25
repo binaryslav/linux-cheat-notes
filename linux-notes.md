@@ -448,6 +448,10 @@ CONTENTS:
 
 *
 
+     w - show who is logged on what thery are doing
+
+*
+
      echo 'wget -c http://www.example.com/files.iso' | at 09:00 - начать закачку в указанное время
 
      echo "$(tput setaf 1)Red text $(tput setab 7)and white background$(tput sgr 0)" - the way to set  a custom colour scheme for terminal output ( one time only, don't worry ) 
@@ -589,7 +593,7 @@ CONTENTS:
 
      at - execute a command at a later time 
 
-* 
+*
 
      https://tecadmin.net/crontab-in-linux-with-20-examples-of-cron-schedule/
 
@@ -1251,24 +1255,18 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
      pstree - makes a tree of processes depends
 
-     ps ux - to check all the processes running under a user
-
-
-
-
+     ps -ef -f - list all running processes
+     ps -f -u iarosb - list processes running under a user
+     ps -C processName - list by name
+     ps -f -p 1,2,3  - list information about a process by ID
+     ps -p 3150 -L - display all threads which a process with "3150" ID is running on
 
      ps -eafw -!! ADD DETAILED EXPlANATION ABOUT FLAGS in details !!
 
      отобразить запущенные процессы, используемые ими ресурсы и другую полезную информацию (единожды) 
 
 
-
-
-
-
      ps -e -o pid,args --forest -  display all processes with their PIDs as a tree.
-
-     ps -f - display full running processes with their PID's and PPD's and also UID's
 
      ps -aj (all jobs)
 
@@ -1339,9 +1337,17 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
 **/ NETWORKING /**
 
+https://www.ubuntupit.com/useful-linux-network-commands-for-modern-sysadmins/
+
+https://www.fosslinux.com/42935/linux-networking-commands.htm
+
 *
 
      hosts - static table lookup for hostnames
+
+*
+
+     host example.com - resolves IP address
 
 *
 
@@ -1358,12 +1364,16 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
      ssh host - securely connect to the system via SHH default port 22 
 
 *
-
-     dig 
+     dig facebook.com [a, any etc]
+     dig @198.41.0.4 www.facebook.com // ipv4
+     dig @2001:503:a83e::2:30 www.facebook.com // ipv6
+     dig -x host - performs reverse lookup on a domain
 
 *
 
-     tracerout 
+     arp - linux address resolution protocol module
+
+     arp -n   - show IPs instead of host names
 
 *
 
@@ -1371,8 +1381,15 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
 
 *
+     https://www.tecmint.com/nmap-command-examples/
 
-     nmap
+     https://securitytrails.com/blog/nmap-commands
+
+     nmap - network mapping tool that is used to scan ports (it's illegal in the US)
+
+*
+
+     nload - monitor a network bandwith
 
 *
 
@@ -1417,6 +1434,10 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
 *
 
+     route - Kernel IP routing table lookup tool
+
+*
+
      tracerout www.ru -n 
 
 
@@ -1454,10 +1475,7 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
 *
 
-     dig domain - retrieves DNS information about the domain name 
-
-     dig -x host - performs reverse lookup on a domain 
-
+     mail - send mails over SMPT from terminal (and many more) 
 *
 
      egrep "^(ftp|http|smtp|ssh).*tcp" /etc/services 
