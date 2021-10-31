@@ -13,6 +13,10 @@ Usage:
  
 ! Note:
    Commands in chapters aren't sorted alphabetically(yet);
-   I will cosider investing my time to make it command-line-friendly in the future.
+   I will cosider investing my time in making it command-line-friendly in the future.
+
+- [ ] sort it alphabetically
+- [ ] work around unix CLI compatability
+
 
 Happy coding !
