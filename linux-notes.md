@@ -625,12 +625,14 @@ Handling Cache and used space:
                sudo apt autoremove --purge
 
 
-     4)
+     4)   (removing unused linux kernel images)
+
           sudo dpkg --list | grep 'linux-image-*'
           sudo dpkg --list 'linux-image-*'
 
                then
-          sudo apt-get remove linux-image-VERSION
+          sudo apt-get purge linux-image-VERSION
+          sudo apt autoclean && sudo apt autoremove
 
 *
 
@@ -1265,6 +1267,7 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
      отобразить запущенные процессы, используемые ими ресурсы и другую полезную информацию (единожды) 
 
+     ps --no-headers -o comm 1 - outputs an init system that is used by OS
 
      ps -e -o pid,args --forest -  display all processes with their PIDs as a tree.
 
