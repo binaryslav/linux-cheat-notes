@@ -2,8 +2,17 @@
 A collection of some useful commands that I use in my daily work.
 
 Usage: 
- * Use a list of content for quick navigation through the document(meant to be used: Ctrl + F --> *case sensetive search* to jump directly)
- 
- ! NOTE: Commands in chapters aren't sorted and may surprise you being placed into a chapter you weren't expected them to be.
 
-Thank you for reading and happy coding !
+   Navigation is done typically by jumping to a specific line either with help of built-in search(Ctrl + F) in most modern text editors like VS Code/Codium, Sublime etc or by clicking on a link from "Contents". In its current state it's barely useful for console ninjas so there's not much you can do about it, except for:
+
+```Bash
+ cat linux-cheat-notes.md | grep "pattern";
+//or 
+ cat linux-cheat-notes.md | less;
+```
+ 
+! Note:
+   Commands in chapters aren't sorted alphabetically(yet);
+   I will cosider investing my time to make it command-line-friendly in the future.
+
+Happy coding !
