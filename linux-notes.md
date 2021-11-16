@@ -1,23 +1,30 @@
-CONTENTS:
-1)Bash
-2)Session
-3)Hardware and firmware
-4)Package managers(rpm, apt, dpkg, pacman)
-5)File system and disk space
-6)Processes and memory
-7)Networking
-8)Vi + Vim
-9)Other
+----------------------
+<<0>> CONTENTS:
+----------------------
+<<1>>  TTY, terminal, working with stdin/stdout/stderr
+<<2>>  Kernel, date, time, locale
+<<3>>  Users, groups, permissions
+<<4>>  Hardware and firmware
+<<5>>  Package managers (rpm, apt, dpkg, pacman)
+<<6>>  File system and disk space
+<<7>>  Processes and memory
+<<8>>  Networking
+<<9>>  Vi + Vim
+<<10>> Other
+
+! search for <<N>> to jump quickly on a specific topic
 
 
+## <<1>> TTY
 
-**/ BASH /**
+*
 
+     ctr + alt + Fn - open the virtual console number n
 
 * 
 
      stty - changes and prints terminal line settings (for the control sequences)
-     stty -a  - prints all 
+     stty -a  - prints all
 
 
      bind -l - lists all readlines in Bash session 
@@ -134,6 +141,8 @@ CONTENTS:
 
      clear - clear a terminal screen
 
+
+
 *
      https://www.howtogeek.com/howto/44997/how-to-use-bash-history-to-improve-your-command-line-productivity/
 
@@ -153,14 +162,9 @@ CONTENTS:
 * 
 
      dmesg - display all dignostic messages from tty1 into a current treminal which is running from Kernel Linux.
-
 *
 
-     commandName -run a command bin-file (firefox for example)
-
      commandName & - run a command in a background
-
-     +
 
      %jobName & - put a job in background  (not stopping it)
 
@@ -182,6 +186,8 @@ CONTENTS:
 
      dircolors - colour setup for ls (perhaps it's useless)
 
+
+
 *
      https://www.opensourceforu.com/2012/06/beginners-guide-gnu-grep-basics/
 
@@ -196,79 +202,6 @@ CONTENTS:
      grep linux file*.{txt,htm*} - search for all strings that contain "linux" in a current directory
 
      grep -h -v 2017-07  - print lines matching a pattern
-
-          -h, --no-filename
-               Suppress the prefixing of file names on output. This is the default
-               when there is only  one  file  (or only standard input) to search.
-
-          -o, --only-matching
-               Print  only  the matched (non-empty) parts of a matching line,
-               with each such part on a separate output line.
-
-          ‘-v’
-          ‘--invert-match’
-               Invert the sense of matching, to select non-matching lines.  (‘-v’
-               is specified by POSIX.)
-
-          ‘-w’
-          ‘--word-regexp’
-               Select only those lines containing matches that form whole words.
-               The test is that the matching substring must either be at the
-               beginning of the line, or preceded by a non-word constituent
-               character.  Similarly, it must be either at the end of the line or
-               followed by a non-word constituent character.  Word-constituent
-               characters are letters, digits, and the underscore.  This option
-               has no effect if ‘-x’ is also specified.
-
-          ‘-L’
-          ‘--files-without-match’
-               Suppress normal output; instead print the name of each input file
-               from which no output would normally have been printed.  The
-               scanning of each file stops on the first match.
-
-          ‘-l’
-          ‘--files-with-matches’
-               Suppress normal output; instead print the name of each input file
-               from which output would normally have been printed.  The scanning
-               of each file stops on the first match.  (‘-l’ is specified by
-               POSIX.)
-
-          ‘-n’
-          ‘--line-number’
-               Prefix each line of output with the 1-based line number within its
-               input file.  (‘-n’ is specified by POSIX.)
-
-          ‘-q’
-          ‘--quiet’
-          ‘--silent’
-               Quiet; do not write anything to standard output.  Exit immediately
-               with zero status if any match is found, even if an error was
-               detected.  Also see the ‘-s’ or ‘--no-messages’ option.  (‘-q’ is
-               specified by POSIX.)
-
-
-          ‘-s’
-          ‘--no-messages’
-               Suppress error messages about nonexistent or unreadable files.
-               Portability note: unlike GNU ‘grep’, 7th Edition Unix ‘grep’ did
-               not conform to POSIX, because it lacked ‘-q’ and its ‘-s’ option
-               behaved like GNU ‘grep’’s ‘-q’ option.(1)  USG-style ‘grep’ also
-               lacked ‘-q’ but its ‘-s’ option behaved like GNU ‘grep’’s.
-               Portable shell scripts should avoid both ‘-q’ and ‘-s’ and should
-               redirect standard and error output to ‘/dev/null’ instead.  (‘-s’
-               is specified by POSIX.)
-
-          ‘-H’
-          ‘--with-filename’
-               Print the file name for each match.  This is the default when there
-               is more than one file to search.
-
-          ‘-h’
-          ‘--no-filename’
-               Suppress the prefixing of file names on output.  This is the
-               default when there is only one file (or only standard input) to
-               search.
-
                
 *    
 
@@ -344,11 +277,27 @@ CONTENTS:
 
      tail -n 7 ./dir/name.txt
 
+     tail -f/F log.txt - listen to changes in a file(in the last 10 lines of a file--> latest)
+
 *
 
      less ./dir/file
      
      less seasonal/spring.csv seasonal/summer.csv - to view those two files in that order. Press spacebar to page down, :n to go to the second file, and :q to quit.
+
+     less -f/F log.txt - listen to changes in a file
+
+     Navigation:
+               Ng - go to a N-th line
+               g - to the beginning
+               G - to the end
+               
+               /pattern - search forward
+               ?pattern - search backward
+               n - Repeat previous search.
+               N - Repeat previous search in reverse direction.
+
+               q - quit
 
 *
 
@@ -357,148 +306,46 @@ CONTENTS:
      sort fileName  newSortedFile ; mv newSortedFile fileName 
 
 *
-     file  
 
      file ./bin - to determine type of the FILE CONTENT, not just file extension 
 
-*
 
-     You can add an attribute by using "$" 
-
-     The variable "$?" keeps last used command's exit-code (0, 1 etc) 
-     ___1 example :
-
-     LEVEL="1 ; 2 ; 3 ; 4"
-     printf "$i" $LEVEL ( use "$s" for a string of values) 
-
-     "0; 1; 2; 3; ;4"  - is output of this 
-
-     NOTE! Hence printf didn't interpretered 0,1,2,3,4 as distinct values. The solution is to put the Variable( $LEVEL ) under quotes like this : 
-     printf "$s" "$LEVEL" 
-
-     ____2 example : 
-
-     LEVEL=5
-     FLAG_MESSAGE="I've done with ""$LEVEL"".I deserve appreciation" ( or ${$LEVEL} to get the "LEVEL 5" as output) 
-     printf "$s" "$FLAG_MESSAGE" 
-
-     "I've done with LEVEL5. I deserve appreciation" - is the output 
-
-     also "$q" to ensure every space between words in output and "%c" for a single character : printf "$c" "\" 
-
-
-
-     export PATH="$PATH:/sbin" - set default directory for futher searching of binaries.
-
-     A= 5 
-     B= 3 
+## <<2>> Kernel, date, time, locale
 
 *
-     !!! important one 
+     uname -r  - to list a linux kernel in use
+     uname -a - session information(kernel,architecture)
 
-     https://stackoverflow.com/questions/4651437/how-do-i-set-a-variable-to-the-output-of-a-command-in-bash?noredirect=1&lq=1
+     dpkg --list | grep linux-image - to list all installed linux kernels
 
-* 
+     lsmod - shows which loadable kernel modules are currently loaded
 
-     VARIABLES: NAME="John" 
-     
-     call a variable : 
-     echo "I'm $NAME" 
-          !!!   but '' single quotes override it with a "I'm $NAME" output 
-          !!!  `` acute or back quotes serve only for functions (thus commands also) 
-     
-     call a function :  
-     1) echo "I'm in $(pwd)"
-     2) echo "I'm in `pwd`"
+     insmod - download mod into the memory by adding to the kernel 
 
-     BRACE EXPANSION:  //  https://wiki.bash-hackers.org/syntax/expansion/brace
-     echo {A,B}.js  ---> "A.js  B.js"
-     echo {1..5} ---> "1 2 3 4 5" // for ranges 
-     echo {A, B} ---> "A B" 
-     echo {str1,...,str2,str3} // for string list
-     
-     echo {{A..Z},{a..z}} ---> The whole latin alphabet 
-
-     mkdir /home/bash/test/{foo,bar,baz,cat,dog}
-
-     for i in {0..10}; do printf "%s\n"  "$i"; done  -->
-     1
-     2
-     3
-     4
-     ...
-     10
-
-
-
-
-**/ SESSION /**
-     
-     ctr + alt + Fn - open the virtual console number n
-     
+     rmmod - simple programm to resolve a module from the Linux Kernel 
 
 *
 
-     sudo SuperUser execution for an entering comand (1)
+     hostname - shows the system hostname 
 
-     sudo su (after that all commands will be execute from SUPERUSER/mounted(?))
-
-     sudo !! ( execute next commands as root )
+     hostname -i - displays the IP address of the system 
 
 
 *
 
-     w - show who is logged on what thery are doing
+     modinfo - shows information about a Linux Kernel module
+
+*
+
+     runlevel - displays current running level of system
+
+
 
 *
 
      echo 'wget -c http://www.example.com/files.iso' | at 09:00 - начать закачку в указанное время
 
      echo "$(tput setaf 1)Red text $(tput setab 7)and white background$(tput sgr 0)" - the way to set  a custom colour scheme for terminal output ( one time only, don't worry ) 
-
-     *
-
-     login username 
-
-     logout username - leave the current session  
-
-*
-
-     id - displays the details of the active user e.g. uid, gid and groups 
-
-*
-
-     groupadd "admin" - adds the group admin 
-
-     adduser "Sam" - adds user Sam 
-
-     userdel "Sam" - deletes user Sam 
-
-*
-
-     usermod - used for changing modifying user information 
-
-*
-
-     who - shows who's logged in to the session 
-
-     w - the same but is more informative one 
-
-*
-
-     whoami - displays who are you logged in as 
-
-* 
-
-     passwd - set/change password 
-
-*
-
-     chroot - change root directory ( for safe sandboxing )
-
-*
-
-     chown - change the owner of a file or folder 
 
 *
 
@@ -522,37 +369,10 @@ CONTENTS:
 
      last reboot - display the history of reboots and system loads 
 
-* 
 
-     uname -a - session information(kernel,architecture)
-
-*
-
-     hostname - shows the system hostname 
-
-     hostname -i - displays the IP address of the system 
-
-
-*
-
-     modinfo - shows information about a Linux Kernel module
-
-*
-
-     runlevel - displays current running level of system
 
 * 
-     uname -r  - to list a linux kernel in use
-
-     dpkg --list | grep linux-image - to list all installed linux kernels
-
-     lsmod - shows which loadable kernel modules are currently loaded
-
-     insmod - download mod into the memory by adding to the kernel 
-
-     rmmod - simple programm to resolve a module from the Linux Kernel 
-
-*
+ 
 
      systemd-analyze - display how much time takes the system for the boot.
 
@@ -636,7 +456,70 @@ Handling Cache and used space:
 
 *
 
-**/ HARDWARE AND FIRMWARE /**
+## <<3>> USERS, GROUPS, PERMISSIONS
+
+*
+
+     sudo SuperUser execution for an entering comand (1)
+
+     sudo su (after that all commands will be execute from SUPERUSER/mounted(?))
+
+     sudo !! ( execute next commands as root )
+
+
+*
+
+     w - show who is logged on what thery are doing
+
+*
+
+     login username 
+
+     logout username - leave the current session  
+
+*
+
+
+     id - displays the details of the active user e.g. uid, gid and groups 
+
+*
+
+     groupadd "admin" - adds the group admin 
+
+     adduser "Sam" - adds user Sam 
+
+     userdel "Sam" - deletes user Sam 
+
+*
+
+     usermod - used for changing modifying user information 
+
+*
+
+     who - shows who's logged in to the session 
+
+     w - the same but is more informative one 
+
+*
+
+     whoami - displays who are you logged in as 
+
+* 
+
+     passwd - set/change password 
+
+*
+
+     chroot - change root directory ( for safe sandboxing )
+
+*
+
+     chown - change the owner of a file or folder 
+
+*
+
+
+## <<4>> HARDWARE AND FIRMWARE
 
 *
 
@@ -726,7 +609,7 @@ Handling Cache and used space:
      prime-select intel|nvidia|on-demand  - switch a profile for GPU 
 
 
-**/ PACKAGE MANAGERS /**
+## <<5>> PACKAGE MANAGERS
 
 *
 
@@ -801,6 +684,7 @@ Handling Cache and used space:
 
           sudo apt list --------->  apt show [a pakage] => get a full information about a pakage.
           
+          apt-cache rdepends --installed packagename - lists dependencies for an installed package (according to a real environment)
 
           sudo apt search [a pakage/string of pakage]
 
@@ -867,7 +751,7 @@ Handling Cache and used space:
 
           snap list
 
-**/ FILE SYSTEM AND DISK SPACE /**
+## <<6>> FILE SYSTEM AND DISK SPACE
 
      GID, UID, PID, PPID - indexes 
 
@@ -904,6 +788,8 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
      unzip file1.zip - to unzip and unpack a zip-file 
 
      unzip -o \*.zip - to extract all files to the current directory and "-o" is used to override the existing directories(that have the same name/were created beforehand)
+
+     for i in *.zip; do unzip "$i" -d "${i%%.zip}"; done  - extract all .zip files, each in a new folder with the same name.
 
      unrar x file1.rar - to unzip a rar-file
      
@@ -1133,7 +1019,7 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
 
 
-**/ PROCESSES AND MEMORY /**
+## <<7>> PROCESSES AND MEMORY
 
 *
 
@@ -1338,7 +1224,7 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
 
 
-**/ NETWORKING /**
+## <<8>> NETWORKING
 
 https://www.ubuntupit.com/useful-linux-network-commands-for-modern-sysadmins/
 
@@ -1485,20 +1371,21 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 
 
 
-**/ VI + VIM /**
+## <<9>> VI + VIM
 
      https://devhints.io/vim - vim cheatsheet 
 
      https://devhints.io/vimscript  - integration in automation and scripting using Vim 
      :/SEARCHPATTERN
      :help  "object"
-   ## Modes
+
+### Modes:
  	: - command mode
 	/ - search forward
 	? - search backward 
 	
 
-   ## Movement:
+### Movement:
 	gg - go to the begin of the document
 	G  - go to the end of the document
 	^  - go to the begin of the line
@@ -1512,7 +1399,7 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 	w  - advance a single word
 	b  - go back a single word
 	
-   ## Actions:
+### Actions:
 	x - delete the character after the cursor position
 	dw - delete an entire word
 	dd - delete an entire line
@@ -1546,7 +1433,7 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 
 
 
- **/ OTHER /**
+## <<10>> OTHER
 
      JUST A HINT :  rename kernels I like the most and store them into the specific folder(don't forget to suggest them custom names that will represent date, kernel version and a build source(e.g. community, cannonical or smh else )
 
@@ -1557,3 +1444,5 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
      make - utility to maintain and build binaries (packages)
 *
      source - evaluate a file or resource as a Tcl script
+
+*
