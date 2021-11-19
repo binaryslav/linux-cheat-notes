@@ -6,7 +6,7 @@
 <<3>>  Users, groups, permissions
 <<4>>  Hardware and firmware
 <<5>>  Package managers (rpm, apt, dpkg, pacman)
-<<6>>  File system and disk space
+<<6>>  File system and disk space, logs
 <<7>>  Processes and memory
 <<8>>  Networking
 <<9>>  Vi + Vim
@@ -466,6 +466,7 @@ Handling Cache and used space:
 
      sudo !! ( execute next commands as root )
 
+     sudo -l
 
 *
 
@@ -582,6 +583,10 @@ Handling Cache and used space:
 
 *
 
+     cat /etc/os-release - variables for OS version, kernel, pretty name, version etc
+
+*
+
      lspci - is a utility for displaying information about PCI buses in the system and devices connected to them. By default, it shows a brief list of devices. 
 
      lspci | grep VGA - to get my bus ID 
@@ -633,48 +638,6 @@ Handling Cache and used space:
           sudo apt-get install packageName --no-upgrade ( will prevent already installed packgaes from upgrading while installing some new ) 
 
           sudo apt update ----> sudo apt upgrade ----> sudo apt autoremove -----> 
-
-          Usage: apt command [options]
-               apt help command [options]
-
-          Commands:
-          add-repository   - Add entries to apt sources.list
-          autoclean        - Erase old downloaded archive files
-          autoremove       - Remove automatically all unused packages
-          build            - Build binary or source packages from sources
-          build-dep        - Configure build-dependencies for source packages
-          changelog        - View a package's changelog
-          check            - Verify that there are no broken dependencies
-          clean            - Erase downloaded archive files
-          contains         - List packages containing a file
-          content          - List files contained in a package
-          deb              - Install a .deb package
-          depends          - Show raw dependency information for a package
-          dist-upgrade     - Upgrade the system by removing/installing/upgrading packages
-          download         - Download the .deb file for a package
-          edit-sources     - Edit /etc/apt/sources.list with your preferred text editor
-          dselect-upgrade  - Follow dselect selections
-          full-upgrade     - Same as 'dist-upgrade'
-          held             - List all held packages
-          help             - Show help for a command
-          hold             - Hold a package
-          install          - Install/upgrade packages
-          list             - List packages based on package names
-          policy           - Show policy settings
-          purge            - Remove packages and their configuration files
-          recommends       - List missing recommended packages for a particular package
-          rdepends         - Show reverse dependency information for a package
-          reinstall        - Download and (possibly) reinstall a currently installed package
-          remove           - Remove packages
-          search           - Search for a package by name and/or expression
-          show             - Display detailed information about a package
-          showhold         - Same as 'held'
-          source           - Download source archives
-          sources          - Same as 'edit-sources'
-          unhold           - Unhold a package
-          update           - Download lists of new/upgradable packages
-          upgrade          - Perform a safe upgrade
-          version          - Show the installed version of a package
 
           sudo apt-get install [a pakage]  
 
@@ -745,7 +708,7 @@ Handling Cache and used space:
 
      5) dnf 
 
-          dnf install packageName - to install a package using dnf utility 
+          dnf install packageName - to install a package using dnf utility
 
      6) snap
 
@@ -1015,8 +978,16 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
 *
 
+     /var/log/syslog - logs for application level information
+     /var/log/dmesg  - logs for close to the hardware information
 
+     /var/log/auth.log - logs for authentication attempts via ports open to the internet (eg using ssh)
 
+     dmesg - command to show logs for hardware level events
+
+     journalctl serviceName - display information about a service
+     journalctl -fu serviceName - real-time log stream that outputs only specific to a service information 
+ 
 
 
 ## <<7>> PROCESSES AND MEMORY
@@ -1226,6 +1197,9 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
 ## <<8>> NETWORKING
 
+
+     /etc/networks
+
 https://www.ubuntupit.com/useful-linux-network-commands-for-modern-sysadmins/
 
 https://www.fosslinux.com/42935/linux-networking-commands.htm
@@ -1245,12 +1219,13 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
      telnet host - connect to host via telnet default port 23 
 
 *
+     /etc/ssh/sshd_config  - a config for ssh daemon
 
      ssh user_name@host(IP/Domain_name)- securely connect to host as user
 
      ssh -p port_number user@host - securely connect to host using a specific port 
 
-     ssh host - securely connect to the system via SHH default port 22 
+     ssh host - securely connect to the system via SHH default port 22
 
 *
      dig facebook.com [a, any etc]
@@ -1267,6 +1242,7 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 *
 
      ssh - OpenSSH remote login client
+
 
 
 *
@@ -1287,7 +1263,9 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 
      netstat -antu
 
-     netstat -pnltu - displays all active listening ports 
+     netstat -pnltu - displays all active listening ports
+
+     netstat -rn -f inet - shows the default routes to diffrenet destinations stored in the Kernel IP routing table
 
 *
      wpa_supplicant 
@@ -1302,24 +1280,25 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 
 *
 
-     ip a
+     ip a (all)
 
-     ip n 
+     ip n (replace IPs with domain names)
 
-     ip r
+     ip r (routes)
 
      ip link show
 
-     ip address show 
+     ip address show/ ip addr 
 
      ip link set dev Interface up ----> ip rout add default via 192.168.102.1(an example)
 
-     ifup/ifdown 
+     ifup/ifdown
 
      sudo ifconfig wlp3s0 down/up 
 
 *
-     ping c1(not a "L" letter) 192.186.1.1(an example) - display the reachability of the IP address
+
+     ping -c 3 ipAddress - ping an address with 3 packets
 
 *
 
@@ -1327,16 +1306,16 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 
 *
 
-     tracerout www.ru -n 
+     tracerout www.example.com -n 
 
 
 *
 
-     ip address a(add???) 192.168.102.125/24 broadcast 192.168.102.255 dev wlp3s0 - (an example of adding the IP after turning the state of an interface UP/DOWN)
+     ip address a(add???) 192.168.102.125/24 broadcast 192.168.102.255 dev wlp3s0 - ( adding an IP after turning the state of an interface UP/DOWN)
 
 *
 
-     telnet 192.168.102.1 112(an example)
+     telnet ipAddress 112 - a CLI interface to the communication protocol TELNET (provides a bidirectional text-based connection )
 
 *
 
@@ -1357,6 +1336,11 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 *
 
      host google.com  - performs an IP lookup for the domain name 
+
+*
+     /etc/resolv.conf  - DNS resolution config
+
+     sudo systemctl restart systemd-resolved.service
 
 *
 
