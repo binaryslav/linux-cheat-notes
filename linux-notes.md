@@ -1280,6 +1280,10 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 
 *
 
+     arp 192.168.0.1 - get mac address of IP
+
+*
+
      ip a (all)
 
      ip n (replace IPs with domain names)
@@ -1385,6 +1389,8 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 	
 ### Actions:
 	x - delete the character after the cursor position
+     w - hop one word forward
+     b - hop one word backword
 	dw - delete an entire word
 	dd - delete an entire line
 	r - replace a single character
