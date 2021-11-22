@@ -647,6 +647,11 @@ Handling Cache and used space:
 
           sudo apt list --------->  apt show [a pakage] => get a full information about a pakage.
           
+
+          apt-cache depends package - list dependencies
+
+          apt-cache madison package - list available versions
+
           apt-cache rdepends --installed packagename - lists dependencies for an installed package (according to a real environment)
 
           sudo apt search [a pakage/string of pakage]
