@@ -480,15 +480,21 @@ Handling Cache and used space:
 
 *
 
-
      id - displays the details of the active user e.g. uid, gid and groups 
 
+     id -gn username - which group a user belongs to
+     id -u username - display user ID 
+     id username
+
 *
+
+     !NOTE : you won't be able to use your newly created user until you provide a password for them.
 
      groupadd "admin" - adds the group admin 
 
      adduser "Sam" - adds user Sam 
-
+     sudo passwd username - create a password for a user
+ 
      userdel "Sam" - deletes user Sam 
 
 *
@@ -768,8 +774,12 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
 *
 
-     gpg -c file_name - encrypts a file 
+     gpg --ecnrypt --sign --armor some.txt --> encrypted file "some.txt.asc" in ASCII
+     gpg -e -r gpgUSERNAME filename - encrypts
+     gpg -c file_name - encrypts a file
 
+     gpg -d -o ~/path/newFileName ~/path/encryptedFilename
+     gpg -d ./filename > plain.txt
      gpg file_name.gpg - decrypts a file
 
 *
@@ -1224,6 +1234,8 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
      telnet host - connect to host via telnet default port 23 
 
 *
+     ssh-keygen -f ./.ssh/id_rsa -p - change private passphrase for SSH
+
      /etc/ssh/sshd_config  - a config for ssh daemon
 
      ssh user_name@host(IP/Domain_name)- securely connect to host as user
@@ -1408,8 +1420,12 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
     	c - change(for example "c)" - change all words till the begin of the current line or another example of usage: "c5w" - means change the last 5 words )
 	d - delete a character
 	y - yank(similar to copying)
-	yy - yank an entire line
+     3yy - yank three lines down
+     3yw - yank 3 words ahead
+	yy - yank an entire line(including a newline character)
+     yiw - yank the current word (the cursor is at)
 	yw - yank an entire word
+     y^ - yank to the beginning of the current line
 	y$ - yank to the end of the current line
 	p - put data from clipboard
 	. - means the current line(where the cursor is now)	
