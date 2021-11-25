@@ -774,7 +774,7 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
 *
 
-     gpg --ecnrypt --sign --armor some.txt --> encrypted file "some.txt.asc" in ASCII
+     gpg --ecnrypt --sign --armor -r gpgUsername some.txt --> encrypted file "some.txt.asc" in ASCII
      gpg -e -r gpgUSERNAME filename - encrypts
      gpg -c file_name - encrypts a file
 
