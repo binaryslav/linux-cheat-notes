@@ -31,7 +31,7 @@
      bind -p  - displays all control sequences' keys and their meanings (.inputrc)
 
 
-*    
+*
      Keybindings:
 
      ctrl + alt + d  - minimize all windows (ubuntu)
@@ -70,18 +70,19 @@
 
      info cat > cat.info 2> cat.stderr 
 
-     Merging sources : 
+     Merging sources :
+
      2>&1 - tells the terminal to put stderr together with stdout:
      info cat > cat.info 2>&1 
      TIP! : to avoid writing "2>&1 file" there's a shortcut "&> file"/">& file"
-     info cat > cat.info 2> /dev/null 
+     info cat > cat.info 2> /dev/null
 
 
-     ; - to restrict commands in a line between each other 
+     ; - to restrict commands in a line between each other
 
 *
 
-     expr - to calculate some integers in terminal 
+     expr - to calculate some integers in terminal
 
      bc - to calculate ( more powerful one)
 
@@ -101,7 +102,7 @@
 
 *
 
-     info commandName 
+     info commandName
 
      man commandName
 
@@ -141,8 +142,6 @@
 
      clear - clear a terminal screen
 
-
-
 *
      https://www.howtogeek.com/howto/44997/how-to-use-bash-history-to-improve-your-command-line-productivity/
 
@@ -161,7 +160,8 @@
 
 * 
 
-     dmesg - display all dignostic messages from tty1 into a current treminal which is running from Kernel Linux.
+     dmesg - display all dignostic messages from tty1 into a current treminal which is running from Kernel Linux
+
 *
 
      commandName & - run a command in a background
@@ -180,7 +180,14 @@
 
 *
 
-     tee  - duplicate stnd input / duplicate pipe content / read from standard input and write into output and        files
+     tee  - eads the standard input and writes it to both the standard output and one or more files.
+     Options:
+          -a - append output to a file without overwriting its content
+          -i - ignore interrupt signals
+
+     command | tee file.out >/dev/null - supress writing to stdout
+     watch -e command | tee -a error.log >/dev/null
+
 
 *
 
@@ -189,6 +196,13 @@
 
 
 *
+
+     awk - 
+
+     https://www.geeksforgeeks.org/awk-command-unixlinux-examples/
+
+*
+
      https://www.opensourceforu.com/2012/06/beginners-guide-gnu-grep-basics/
 
      https://stackoverflow.com/questions/1546711/can-grep-show-only-words-that-match-search-patternw
@@ -202,15 +216,15 @@
      grep linux file*.{txt,htm*} - search for all strings that contain "linux" in a current directory
 
      grep -h -v 2017-07  - print lines matching a pattern
-               
+
 *    
 
      wc - word calculator 
-     - w (words
+     - w (words)
      - l (lines)
-     - c (bytes) 
+     - c (bytes)
      - m (chars) print the character counts 
-     
+
 *
 
      comm - select or reject lines common to two files / compare two sorted files line by line (standart output is 3 columnes (unique for 1st file, unique for 2nd and lines that appear in both files) 
@@ -225,13 +239,14 @@
 
 *
 
-     diff -r - to compare one dir to another (recursively any subdirs found ) 
-          -s reports when two files are the same 
-          -q brief. Reports only when files differ 
-          -y side-by-side output in two columnes 
-          -i ignore case differents in files 
+     diff -r - to compare one dir to another ( recursively any subdirs found )
+          -s reports when two files are the same
+          -q brief. Reports only when files differ
+          -y side-by-side output in two columnes
+          -i ignore case differents in files
 
 *
+
      echo "This is test" | cut -f 1 -d ' ' - where space is used as a delimiter
 
      cut -d, -f 2 ./dir/file  wc ( cut - remove sections from each line of files )
@@ -242,10 +257,25 @@
 
 *
 
-     sed - stream editor for filtering and transforming text
+     sed - text stream editor for filtering and transforming text
+     sed OPTIONS ... [SCRIPT] [INPUT_FILE...]
 
+     sed 's/unix/linux/' geekfile.txt - replace all occurences of "unix" with "linux"
+     sed 's/unix/linux/1, /2' geekfile.txt - replace the 1-st & the 2-nd occurences of "unix" with "linux"
 
-          https://www.geeksforgeeks.org/sed-command-in-linux-unix-with-examples/
+     sed 's/unix/linux/3g' geekfile.txt - replace all occurence from 3-rd one in a file
+     sed '3 s/unix/linux/' geekfile.txt - replace on a specific line number
+     sed '1,3 s/unix/linux/' geekfile.txt - replace on a range of lines
+     sed '4,$ s/unix/linux/' geekfile.txt - replace from the 4-th line to the end of a file.
+
+     sed '1 s/unix/linux/p' geekfile.txt - duplicate a specific line number
+     sed -n 's/unix/linux/p' geekfile.txt - print lines that are going to be duplicated
+
+     sed '5d' file.txt - delete 5-th line
+     sed '$d' file.txt - delete the last line
+     sed '3,6d' file.txt - delete on a range from 3 to 6 lines
+     sed '12,$d' file.txt - delete from 12-th to the end of a file
+     sed 'abc/d' file.txt - delete pattern matching line
 
           https://www.geeksforgeeks.org/sed-command-linux-set-2/?ref=rp
 
@@ -257,7 +287,7 @@
 
      string - shows only those lines that can be read as text (plain, probably)
 
-     hexdump  - similar to the above one 
+     hexdump  - similar to the above one
 
 *
 
@@ -282,7 +312,7 @@
 *
 
      less ./dir/file
-     
+
      less seasonal/spring.csv seasonal/summer.csv - to view those two files in that order. Press spacebar to page down, :n to go to the second file, and :q to quit.
 
      less -f/F log.txt - listen to changes in a file
@@ -291,11 +321,11 @@
                Ng - go to a N-th line
                g - to the beginning
                G - to the end
-               
+
                /pattern - search forward
                ?pattern - search backward
-               n - Repeat previous search.
-               N - Repeat previous search in reverse direction.
+               n - Repeat previous search
+               N - Repeat previous search in reverse direction
 
                q - quit
 
@@ -328,8 +358,7 @@
 
      hostname - shows the system hostname 
 
-     hostname -i - displays the IP address of the system 
-
+     hostname -i - displays the IP address of the system
 
 *
 
@@ -339,8 +368,6 @@
 
      runlevel - displays current running level of system
 
-
-
 *
 
      echo 'wget -c http://www.example.com/files.iso' | at 09:00 - начать закачку в указанное время
@@ -349,7 +376,7 @@
 
 *
 
-     date - show current date and time 
+     date - show current date and time
 
 * 
 
@@ -361,18 +388,15 @@
 
 *
 
-
      cal /or/ cal 7 2018 - display the current mounth or the significant month.
 
 *
+
      last - displays all together reboots and system boots 
 
      last reboot - display the history of reboots and system loads 
 
-
-
 * 
- 
 
      systemd-analyze - display how much time takes the system for the boot.
 
@@ -381,6 +405,7 @@
      systemd-analyze plot > ~/logs/bootchart.svg - svg-compatible output generated by systemd-analyze command
 
      systemd-analyze critical-chain
+
 *
 
      Locale (lists locale(s) that are currently in use)
@@ -391,7 +416,7 @@
 
      sudo locale-gen ru_RU.UTF-8 (for example) 
 
-     dpkg-reconfigure locales 
+     dpkg-reconfigure locales
 
 *
 
@@ -407,11 +432,31 @@
 
 *
 
-     sleep - suspend execution for an interval 
+     sleep - suspend a script/command execution for an interval 
+
+     sleep number[s/m/h/d] - sec, min, hours, days
+
+     sleep 2 - sleeps for 2 seconds if suffix is not presented
+
+     ls && sleep 2 && pwd - chaining commands with sleep
 
 *
 
      at - execute a command at a later time 
+
+*
+
+     watch -  is used to execute a program/command periodically, showing output in fullscreen
+
+     Options:
+
+     -d - shows the difference between in the output
+     -n - sets the interval in seconds
+     -p - precise: watch attempts to run every interval seconds
+     -t - no title: turns off the header showing the command, the interval etc
+     -b - "beep": will give beep if the command's exit code isn't 0
+     -e - exit: if error it wil freeze the execution and exit after a key press
+     -g - executions stops if the output changes
 
 *
 
@@ -428,7 +473,7 @@
 
 *
 
-     dbus-monitor --system / or --session - display all system or session dbus logs in real time 
+     dbus-monitor --system / or --session - display all system or session dbus logs in real time
 
 
 *
@@ -437,10 +482,10 @@ Handling Cache and used space:
 
      1)	du -sh ~/.cache/thumbnails
           then remove
-               
+
      2)	sudo du -sh /var/cache/apt
           sudo apt-get clean
-          
+
      3) 	(unecessary dependencies and orphan packages)
                sudo apt autoremove --purge
 
@@ -470,7 +515,15 @@ Handling Cache and used space:
 
 *
 
-     w - show who is logged on what thery are doing
+     w - show who is logged on & what thery are doing
+     w pulls information about the logged in users from the /var/run/utmp file.
+
+     w [OPTIONS] [USER]
+
+     Options:
+          w -h - no header
+          w -s - short          
+          w -i - shows IP address instead of hostname
 
 *
 
@@ -511,7 +564,7 @@ Handling Cache and used space:
 
      whoami - displays who are you logged in as 
 
-* 
+*
 
      passwd - set/change password 
 
@@ -531,18 +584,18 @@ Handling Cache and used space:
 *
 
      sudo pacman -Sy hw-probe 
-     
+
      sudo -E hw-probe -all -upload 
-     
+
      https://linux-hardware.org/?probe=07b1242112 - 11.04.20 results 
-     
+
 * 
 
      sudo lshw - list all the hardware
 
 *
 
-     cpu - check it out 
+     cpu - check it out
 
 *
 
@@ -556,7 +609,7 @@ Handling Cache and used space:
 
 *
 
-     df -h - displays information about mounted partitions and all, used and available space on them 
+     df -h - displays information about mounted partitions and all, used and available space on them
 
 
      df -m - show all disk space (display in Mb)
@@ -614,7 +667,7 @@ Handling Cache and used space:
 
      badblocks -s /dev/xda - tests for unreadable blocks on disk 
 
-* 
+*
      prime-select query - shows which GPU is in use now
 
      prime-select intel|nvidia|on-demand  - switch a profile for GPU 
@@ -628,7 +681,7 @@ Handling Cache and used space:
 
 *
 
-     1) apt 
+     1) apt
 
           sudo apt add-apt-repository ppa:graphics-drivers/ppa
                apt policy - to list all ppas in use.
@@ -652,7 +705,7 @@ Handling Cache and used space:
           grep " install " /var/log/apt/history.log - list recently installed packages
 
           sudo apt list --------->  apt show [a pakage] => get a full information about a pakage.
-          
+
 
           apt-cache depends package - list dependencies
 
@@ -677,11 +730,11 @@ Handling Cache and used space:
           pacman {-T --deptest}  [options] [package(s)]
           pacman {-U --upgrade}  [options] <file(s)>
 
-*   
+*
           sudo pacman -Sy hw-probe 
-          
+
           sudo -E hw-probe -all -upload 
-          
+
           https://linux-hardware.org/?probe=07b1242112 - 11.04.20 results 
 *
 
@@ -696,7 +749,7 @@ Handling Cache and used space:
           rpm -e pkg_name      - Removes an rpm package
 
 
-     4) dpkg 
+     4) dpkg
 
           dpkg -i [package.deb] - install a package
 
@@ -741,7 +794,7 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
 *
 
-     umask - DNAGEROUS ONE. Read the manual out before use ( set file mode creation mask (or get)) 
+     umask - DNAGEROUS ONE. Read the manual out before use ( set file mode creation mask (or get))
 
 * 
 
@@ -766,9 +819,9 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
      for i in *.zip; do unzip "$i" -d "${i%%.zip}"; done  - extract all .zip files, each in a new folder with the same name.
 
      unrar x file1.rar - to unzip a rar-file
-     
+
      tar -xvf archive.tar -C /tmp - to unzip a file into "/tmp"
-     
+
      tar -xvfz archive.tar.gz - to unzip and unpack a compressed file
 
 
@@ -866,6 +919,10 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
 *
 
+     shred - remove files securely so that they can't be restored
+
+*
+
         !  Hint: add -v (--verbose) to make it verbose or i to ignore 
 
      rm -rf ./(Remove Dir with all files + force)
@@ -953,6 +1010,8 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
      du - estimate file space usage 
 
+     du -ch 
+
      du -sh dir1 - calculate and displays the amount of space is used by dir1 (-h for human-readable output and -s for separating by directories)
 
 *
@@ -962,6 +1021,8 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
      lsblk -f  - display partition type and used space in % 
 
 *
+
+     df -h - human readable(use with caution in scripts)
 
      df -m - show all disk space (display in Mb)
 
@@ -1234,6 +1295,16 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
      telnet host - connect to host via telnet default port 23 
 
 *
+
+     ufw status verbose
+     ufw status numbered
+
+
+     ufw allow from 127.0.0.1 to 127.0.0.1 port 80 proto tcp
+
+
+* 
+
      ssh-keygen -f ./.ssh/id_rsa -p - change private passphrase for SSH
 
      /etc/ssh/sshd_config  - a config for ssh daemon
