@@ -505,15 +505,60 @@ Handling Cache and used space:
 
 *
 
-     sudo SuperUser execution for an entering comand (1)
-
-     sudo su (after that all commands will be execute from SUPERUSER/mounted(?))
-
      sudo !! ( execute next commands as root )
 
-     sudo -l
+     sudo -u richard whoami - run a sudo-ed command from a user(richard)//--> richard
 
-*
+###  SUDO in pipes:
+          1) sudo sh -c 'echo "test" > /root/file.txt'  - running inside a new shell
+          2) echo "test" | sudo tee /root/file.txt  - using tee command to redirect
+
+### 5 ways of SUDO:  
+     " He did hit on the main point, about one being a login shell and the other not.
+     When running sudo -i the shell will become a login shell, and so it will read things like ~/.profile where as a non-login shell will only read ~/.bashrc.
+
+     When chaining sudo with su (as in sudo su), neither the sudo nor the su invoke a login shell. The equivalent to sudo -i when using su would instead be sudo su -l.
+
+     I personally consider sudo su to be along the lines of "useless use of cat" examples. You can get the same behavior with sudo -s.
+
+     There are basically 5 common ways of invoking a root shell via sudo
+
+###   sudo su
+
+          non-login shell
+          sets HOME to /root
+          Prunes the environment
+
+###     sudo -i
+
+          login shell
+          sets HOME to /root
+          Prunes the environment
+
+###   sudo su -l
+
+          login shell
+          sets HOME to /root
+          Prunes the environment
+          When invoking a shell, this is equivalent to sudo -i
+
+###     sudo -s
+          non-login shell
+          sets HOME to /root
+          Prunes the environment
+          When invoking a shell, this is equivalent to sudo su
+
+###    sudo -Es
+
+     non-login shell
+     Leaves HOME alone
+     Leaves the environment alone (except for $PATH and $LD_LIBRARY_PATH iirc)
+
+"
+
+
+
+*    
 
      w - show who is logged on & what thery are doing
      w pulls information about the logged in users from the /var/run/utmp file.
@@ -552,7 +597,9 @@ Handling Cache and used space:
 
 *
 
-     usermod - used for changing modifying user information 
+     usermod - used for changing modifying user information
+     usermod -aG group username - add a user to a group granting sudo permissions
+
 
 *
 
@@ -595,7 +642,11 @@ Handling Cache and used space:
 
 *
 
-     cpu - check it out
+     lscpu - list advanced CPU information
+
+*
+
+   cpu - check it out
 
 *
 
@@ -1198,7 +1249,15 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
      ps -eafw -!! ADD DETAILED EXPlANATION ABOUT FLAGS in details !!
 
-     отобразить запущенные процессы, используемые ими ресурсы и другую полезную информацию (единожды) 
+     отобразить запущенные процессы, используемые ими ресурсы и другую полезную информацию (единожды)
+
+     By GPU consumption:
+          ps auxf | sort -nr -k 4
+          ps auxf | sort -nr -k 4 | head -10
+
+     By CPU consumption:
+          ps auxf | sort -nr -k 3
+          ps auxf | sort -nr -k 3 | head -10
 
      ps --no-headers -o comm 1 - outputs an init system that is used by OS
 
