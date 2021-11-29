@@ -1129,7 +1129,9 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
      fg - run jobs in the foreground (fg process can handle stdin(from input devices) and take it to the terminal) There could be the only using terminal(tty) at one time 
 
-     (ctrl + Z  to stop) 
+     (ctrl + Z  to stop)
+
+     fg %1  - bring the background job with id 1 to the foreground
 
 
      commandName -run a command bin-file (firefox for example) 
@@ -1235,7 +1237,19 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
 * 
 
-     jobs - display working programms
+     jobs - display all jobs in the current shell
+
+     jobs -l - list jobs with their PIDs
+     jobs -s - stopped jobs
+     jobs -r - running jobs
+     jobs -p - only PIDs of the jobs
+
+     jobs -n - This shows the jobs that have changed their status since the last notification. For example, a job that has changed from a running to a stopped state.
+
+
+     ! Note: to list a PID of a piped process use
+          jobs -x echo %1
+      %1 is for first job in chain, %2 for second, etc. jobs -x replaces job specifier with PID.(doesn't work quite well when the first process is done and the n-th is stopped)
 
 *
 
@@ -1278,6 +1292,11 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
      htop - displays processes, RAM, CPU load and other information with live updating in a terminal. Pseudo-graphical 
 
 *
+
+     kill %% - kills currently running job
+     kill %?gnome-calculator  - kills using a substring
+
+     kill -9 "$(jobs -p -s)"  - kills all stopped jobs in the current shell     
      
      kill -9 PIDnumber /OR/ kill -kill PIDnumber - kill a process unsafelly 
 
