@@ -1124,6 +1124,11 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
      renice 19 PID - makes a process run with very low priority (CPU time for a process)
 
 *
+     ! NOTE: both these commands can be used to restart a stopped process(no arguments)
+          bg
+          fg
+     ! NOTE: use %[number] to specify a job
+
 
      bg - run jobs in the background (bg process can't handle stdin(from input devices) and take it to the terminal); there could be many of them using one terminal(tty)
 
@@ -1293,10 +1298,14 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
 *
 
+     kill -STOP $(jobs -pr)  - stop currently running process (even if it's in the background)
+
      kill %% - kills currently running job
      kill %?gnome-calculator  - kills using a substring
 
-     kill -9 "$(jobs -p -s)"  - kills all stopped jobs in the current shell     
+     kill -9 $(jobs -p -s)  - kills all stopped jobs in the current shell
+
+     kill -9 $(pidof NAME)     
      
      kill -9 PIDnumber /OR/ kill -kill PIDnumber - kill a process unsafelly 
 
