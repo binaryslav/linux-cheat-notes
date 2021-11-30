@@ -908,7 +908,9 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
      vdir - list directory contents
 
-*
+*    
+
+     sudo lsof -i -P -n | grep 22
 
      lsof - list open files (by all processes and users)
 
@@ -1386,9 +1388,14 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
      ufw status verbose
      ufw status numbered
 
+     ufw allow from 127.17.0.2 to 127.0.0.1 port 8080 proto tcp
+     ufw allow proto tcp from any to any port 80,443
 
-     ufw allow from 127.0.0.1 to 127.0.0.1 port 80 proto tcp
+     ufw app list
+     ufw allow OpenSSH 
 
+     ufw allow port 22 (--> SSH)
+     ufw allow port 443 (--> SSH)
 
 * 
 
@@ -1398,7 +1405,7 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 
      ssh user_name@host(IP/Domain_name)- securely connect to host as user
 
-     ssh -p port_number user@host - securely connect to host using a specific port 
+     ssh -p port_number user@host - securely connect to host using a specific port
 
      ssh host - securely connect to the system via SHH default port 22
 
@@ -1441,6 +1448,8 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
      netstat -pnltu - displays all active listening ports
 
      netstat -rn -f inet - shows the default routes to diffrenet destinations stored in the Kernel IP routing table
+
+     sudo netstat -pna | grep " 22 " - lists daemonds listening on a specific port number
 
 *
      wpa_supplicant 
