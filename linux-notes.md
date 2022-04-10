@@ -118,6 +118,14 @@
 
 *
 
+ NOTE!:
+          Aliases are not expanded when the shell is not interactive, unless the expand_aliases shell option is set using shopt (see the description of shopt under SHELL BUILTIN COMMANDS below).
+          The simple answer for you is that scripts create non-interactive shells and, by default, the expand_aliases option is often disabled.
+
+          You can fix this very simply by just adding the following line to the top of your script to enable the alias expansion:
+               shopt -s expand_aliases
+               source ~/.bash_aliases
+
      alias (show all alias)
 
      alias neWname='someCommand'
@@ -158,7 +166,7 @@
 
      commandName !* - to do that reusing all the arguments passed to the last used command
 
-* 
+*
 
      dmesg - display all dignostic messages from tty1 into a current treminal which is running from Kernel Linux
 
@@ -1554,7 +1562,7 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 ### Modes:
  	: - command mode
 	/ - search forward
-	? - search backward 
+	? - search backward
 	
 
 ### Movement:
