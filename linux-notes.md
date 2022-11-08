@@ -737,7 +737,7 @@ Handling Cache and used space:
 
 *
 
-     badblocks -s /dev/xda - tests for unreadable blocks on disk 
+     badblocks -s /dev/xda - tests for unreadable blocks on disk
 
 *
      prime-select query - shows which GPU is in use now
@@ -747,7 +747,7 @@ Handling Cache and used space:
 
 ## <<5>> PACKAGE MANAGERS
 
-*
+
 
      Package managers do : extracting, compiling(from the source to the binary code), decompressing if needed and track the changes.
 
@@ -764,9 +764,11 @@ Handling Cache and used space:
 
           sudo apt-get download PACKAGE (without installing)
 
+          sudo apt install pkgName - to upgrade a specific package that is already installed
+
           sudo apt-get install packageName --only-upgrade ( do not innstall new packages but upgrade already installed )
 
-          sudo apt-get install packageName --no-upgrade ( will prevent already installed packgaes from upgrading while installing some new ) 
+          sudo apt-get install packageName --no-upgrade ( will prevent already installed packgaes from upgrading while installing some new )
 
           sudo apt update ----> sudo apt upgrade ----> sudo apt autoremove -----> 
 
@@ -779,6 +781,8 @@ Handling Cache and used space:
           sudo apt list --------->  apt show [a pakage] => get a full information about a pakage.
 
 
+          apt-cache policy <pkg>    - shows installed & available versions for <pkg>
+
           apt-cache depends package - list dependencies
 
           apt-cache madison package - list available versions
@@ -787,6 +791,27 @@ Handling Cache and used space:
 
           sudo apt search [a pakage/string of pakage]
 
+          apt list -a <pkg> to find out what versions are available
+
+          !!! Preventing pkg from being upgraded &/OR dealing with Kept Back pkgs:
+               Find out why it was held back:
+                    a. dep conflict(see above for checking dependencies)
+                    b. Marked to be held (
+                         apt-mark showhold
+                         sudo apt-mark hold/unhold <pkg>)
+                    c. Phased Pkg(see below)
+
+          !!! Phased packages:
+               https://askubuntu.com/questions/1420969/how-to-force-packages-that-have-been-kept-back-to-be-installed-as-automat
+
+          apt-cache policy <packagename>  - look for Phased %
+
+          !!! Downgrades:
+               apt-get install «pkg»=«version»
+
+               or(a better option is):
+
+               sudo aptitude install «pkg»=«version»
 
      2) pacman 
 
@@ -866,7 +891,7 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
 *
 
-     umask - DNAGEROUS ONE. Read the manual out before use ( set file mode creation mask (or get))
+     umask - DNAGEROUS ONE. Read the manual before using ( set file mode creation mask (or get))
 
 * 
 
@@ -1520,7 +1545,7 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 
 *
 
-     tracerout www.example.com -n 
+     tracerout www.example.com -n
 
 
 *
