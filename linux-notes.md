@@ -227,7 +227,7 @@
 
 *    
 
-     tr - translate or delete characters
+     tr - Translate, squeeze, and/or delete characters from standard input, writing to standard output.
 
      echo $PATH | tr ":" "\n"  -- separates the output by ":" and prints line by line
 
@@ -1527,7 +1527,9 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 
      ip link show
 
-     ip address show/ ip addr 
+     ip address show/ ip addr
+
+     ip address a(add???) 192.168.102.125/24 broadcast 192.168.102.255 dev wlp3s0 - ( adding an IP after turning the state of an interface UP/DOWN)
 
      ip link set dev Interface up ----> ip rout add default via 192.168.102.1(an example)
 
@@ -1547,10 +1549,6 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 
      tracerout www.example.com -n
 
-
-*
-
-     ip address a(add???) 192.168.102.125/24 broadcast 192.168.102.255 dev wlp3s0 - ( adding an IP after turning the state of an interface UP/DOWN)
 
 *
 
