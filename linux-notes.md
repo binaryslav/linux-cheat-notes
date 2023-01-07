@@ -5,7 +5,7 @@
 <<2>>  Kernel, date, time, locale
 <<3>>  Users, groups, permissions
 <<4>>  Hardware and firmware
-<<5>>  Package managers (rpm, apt, dpkg, pacman)
+<<5>>  Package managers (snap, apt, rpm, dpkg, pacman)
 <<6>>  File system and disk space, logs
 <<7>>  Processes and memory
 <<8>>  Networking
@@ -813,7 +813,21 @@ Handling Cache and used space:
 
                sudo aptitude install «pkg»=«version»
 
-     2) pacman 
+     2) snap
+
+          snap list             - show installed snaps
+
+          snap refresh --list   - display updates
+          snap refresh --time   - show scheduled autoupgrades for snaps
+
+          sudo snap set system refresh.timer=fri,21:00~23:00,,sat-sun,6:00~11:00,21:00~23:00
+
+          snap changes          - display recent actions eg installed upgrades
+
+
+
+
+     3) pacman 
 
           usage:  pacman <operation> [...]
           operations:
@@ -835,7 +849,7 @@ Handling Cache and used space:
           https://linux-hardware.org/?probe=07b1242112 - 11.04.20 results 
 *
 
-     3) rpm
+     4) rpm
 
           rpm -V ${package} - to check changes in versions 
           rpm -qf /etc/passwd - check who's the owner of this file 
@@ -846,7 +860,7 @@ Handling Cache and used space:
           rpm -e pkg_name      - Removes an rpm package
 
 
-     4) dpkg
+     5) dpkg
 
           dpkg -i [package.deb] - install a package
 
@@ -867,13 +881,10 @@ Handling Cache and used space:
           dpkg -S /bin/ping - find a package that owes a file or directory /bin/ping
 
 
-     5) dnf 
+     6) dnf 
 
           dnf install packageName - to install a package using dnf utility
 
-     6) snap
-
-          snap list
 
 ## <<6>> FILE SYSTEM AND DISK SPACE
 
@@ -1316,6 +1327,8 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
      ps -ef -f - list all running processes
      ps -f -u iarosb - list processes running under a user
      ps -C processName - list by name
+     ps -C processName -o pid,args --no-headers  - process by name output only pid + args, hide headers
+
      ps -f -p 1,2,3  - list information about a process by ID
      ps -p 3150 -L - display all threads which a process with "3150" ID is running on
 
