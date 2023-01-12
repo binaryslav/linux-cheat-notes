@@ -253,6 +253,10 @@
 
 *
 
+     cmp file1 file2    - cmp' reports the differences between two files character by character, instead of line by line(something that diff command will do). As a result, it is more useful than 'diff' for comparing binary files. For text files, 'cmp' is useful mainly when you want to know only whether two files are identical.
+
+*
+
      diff -r - to compare one dir to another ( recursively any subdirs found )
           -s reports when two files are the same
           -q brief. Reports only when files differ
@@ -611,7 +615,7 @@ Handling Cache and used space:
 
      groupadd "admin" - adds the group admin 
 
-     adduser "Sam" - adds user Sam 
+     useradd "Sam" - adds user Sam 
      sudo passwd username - create a password for a user
  
      userdel "Sam" - deletes user Sam 
@@ -1364,6 +1368,11 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
 *
 
+     pkill -f processName  - kill a process without specifying its PID
+
+
+*
+
      kill -STOP $(jobs -pr)  - stop currently running process (even if it's in the background)
 
      kill %% - kills currently running job
@@ -1509,7 +1518,7 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 
      netstat -antu
 
-     netstat -pnltu - displays all active listening ports
+     netstat -tulpn - displays all active listening ports
 
      netstat -rn -f inet - shows the default routes to diffrenet destinations stored in the Kernel IP routing table
 
@@ -1553,6 +1562,8 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 *
 
      ping -c 3 ipAddress - ping an address with 3 packets
+     ping -c 5 -s 500 ipAddress - ping an address with 5 packets of 500 bytes in size(each)
+
 
 *
 
@@ -1571,6 +1582,8 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 
      ss - is  used  to  dump socket statistics. It allows showing information similar to netstat.  It can display more TCP and state informations than other tools
 
+     ss -tulpn  - show all ports that are open and being listened (same to "netstat -tulpn")
+
 *
 
      echo 'wget -c http://www.example.com/files.iso' | at 09:00 - to schedule a download at 9:00(am)
@@ -1588,7 +1601,10 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
      host google.com  - performs an IP lookup for the domain name 
 
 *
+
      /etc/resolv.conf  - DNS resolution config
+
+     resolvectl status  - DNS resolution info
 
      sudo systemctl restart systemd-resolved.service
 
