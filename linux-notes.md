@@ -583,7 +583,11 @@ Handling Cache and used space:
 
 
 
-*    
+*
+
+     finger userName   - prints information abt the user (time since logged on, name etc)
+
+*
 
      w - show who is logged on & what thery are doing
      w pulls information about the logged in users from the /var/run/utmp file.
@@ -922,6 +926,9 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
 *
 
+     zip 
+
+
      gzip file - to compress to a .gz file 
 
      unzip file1.zip - to unzip and unpack a zip-file 
@@ -1249,7 +1256,7 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
 *
 
-     pgrep name - get a process PID 
+     pgrep name - get PID of a process 
 
 *
 
@@ -1328,8 +1335,11 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
      pstree - makes a tree of processes depends
 
+     ps -u username  - list all processes running by a user
      ps -ef -f - list all running processes
-     ps -f -u iarosb - list processes running under a user
+
+     ps -u username - list processes running by a user
+     ps -f -u $(whoami) - list processes running by active user
      ps -C processName - list by name
      ps -C processName -o pid,args --no-headers  - process by name output only pid + args, hide headers
 
@@ -1370,6 +1380,7 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
      pkill -f processName  - kill a process without specifying its PID
 
+     pkill SIGTERM processName  --> send SIGTERM to a process
 
 *
 
