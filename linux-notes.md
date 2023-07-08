@@ -700,6 +700,14 @@ Handling Cache and used space:
 
 *
 
+     lshw - list hardware
+
+* 
+
+     hwinfo - show hardware info
+
+*
+
      dmidecode - show almost all information about hardware : motherboard,processor etc 
 
 *
@@ -1521,6 +1529,10 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 *
 
      nload - monitor a network bandwith
+
+*
+
+     ngrep - network monitoring tool
 
 *
 
