@@ -1033,7 +1033,7 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
      cp -R ./dir1 ./dir2 - copy all subdirectories and files of dir1 into dir2
 
 *
-     mv -t /dir file1 file2 file3
+     mv -t /dir file1 file2 file3 - move multiple files to a TARGET destination
 
      mv text1.txt text2.txt ------> ls results: text2.txt only existing
      mv ./Dir1 ./Dir2 - move dir1 into dir2
@@ -1196,6 +1196,8 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 *
 
      swapon -s  -- lists the size of a swap file (usually located at /proc/swaps)
+
+    cat /proc/swaps   - the same as swapon -s(see above)
 
 *
 
