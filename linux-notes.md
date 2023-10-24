@@ -12,9 +12,6 @@
 <<9>>  Vi + Vim
 <<10>> Other
 
-! search for <<N>> to jump quickly on a specific topic
-
-
 ## <<1>> TTY
 
 *
