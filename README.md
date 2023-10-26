@@ -20,7 +20,6 @@ A collection of some useful Shell commands and expressions that I use in my dail
 &nbsp;&nbsp;&nbsp;  "keyword" &nbsp; - by command-specific keywords<br>
    
 > [! NOTE]:
-   
  >  Commands in chapters aren't sorted alphabetically(yet);
  >  I will cosider investing my time in making it command-line-friendly in the future.
 
