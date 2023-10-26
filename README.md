@@ -1,11 +1,11 @@
 # linux-cheat-notes
 A collection of some useful Shell commands and expressions that I use in my daily work.
 
-   It was composed with a fuzzy-find-friendliness in mind and one can make the most out of it by:
+It was composed with a fuzzy-find-friendliness in mind and one can make the most out of it by:
    
-      1. Using any fuzzy finding engine of your choice(namely, Telescope)
-      2. Using a built-in search for IDEs(eg VS ****, JetBrains, Atom etc)
-      3. Simply doing it like a CLI ninja:
+1. Using any fuzzy finding engine of your choice(namely, Telescope)
+2. Using a built-in search for IDEs(eg VS ****, JetBrains, Atom etc)
+3. Simply doing it like a CLI ninja:
 
 ```Bash
  cat linux-cheat-notes.md | less;
@@ -13,7 +13,7 @@ A collection of some useful Shell commands and expressions that I use in my dail
  cat linux-cheat-notes.md | grep "pattern";
 //etc
 ```
-<mark>Patterns</mark> to jump around faster <br>
+**_Patterns_ to jump around faster:** <br>
 &nbsp;&nbsp;&nbsp;  "<<0"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      - back to contents(obsolete with Vim motions in play)<br>
 &nbsp;&nbsp;&nbsp;  "<<[1-10]" &nbsp;&nbsp;&nbsp;- between chapters<br>
 &nbsp;&nbsp;&nbsp;  "- text"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   - search by description of a command<br>
