@@ -1,5 +1,5 @@
 # linux-cheat-notes
-A collection of some useful *nix commands and expressions that I use in my daily work.
+A collection of some useful /*nix commands and expressions that I use in my daily work.
 
    It was composed with a fuzzy-find-friendliness in mind and one can make the most out of it by:
    
@@ -14,7 +14,7 @@ A collection of some useful *nix commands and expressions that I use in my daily
 //etc
 ```
 Patterns to jump around faster:
-   "<<0"      - back to contents(obsolete with Vim motions in play)
+   &nbsp"<<0"      - back to contents(obsolete with Vim motions in play)
    "<<[1-10]" - between chapters
    "- text"   - search by description of a command
    "keyword"  - by command-specific keywords
