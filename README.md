@@ -8,11 +8,14 @@ It was composed with a fuzzy-find-friendliness in mind and one can make the most
 3. Simply doing it like a CLI ninja:
 
 ```Bash
- cat linux-cheat-notes.md | less;
-//or
- cat linux-cheat-notes.md | grep "pattern";
-//etc
+ cat linux-cheat-notes.md | less
 ```
+or
+```Bash
+ cat linux-cheat-notes.md | grep "pattern"
+```
+etc
+
 **_Patterns_ to jump around faster:** <br>
 &nbsp;&nbsp;&nbsp;  "<<0"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      - back to contents(obsolete with Vim motions in play)<br>
 &nbsp;&nbsp;&nbsp;  "<<[1-10]" &nbsp;&nbsp;&nbsp;- between chapters<br>
