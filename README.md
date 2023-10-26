@@ -1,5 +1,5 @@
 # linux-cheat-notes
-A collection of some useful /*nix commands and expressions that I use in my daily work.
+A collection of some useful Shell commands and expressions that I use in my daily work.
 
    It was composed with a fuzzy-find-friendliness in mind and one can make the most out of it by:
    
@@ -24,7 +24,7 @@ Patterns to jump around faster:<br>
    Commands in chapters aren't sorted alphabetically(yet);
    I will cosider investing my time in making it command-line-friendly in the future.
 
-#1 TODO:
+TODO:
 - [ ] sort it alphabetically
 - [ ] work around unix CLI compatability
 
