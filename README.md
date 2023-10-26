@@ -29,4 +29,4 @@ Patterns to jump around faster:<br>
 - [ ] work around unix CLI compatability
 
 
-Happy coding !
+*Happy coding !*
