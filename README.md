@@ -14,8 +14,8 @@ A collection of some useful /*nix commands and expressions that I use in my dail
 //etc
 ```
 Patterns to jump around faster:<br>
-&nbsp;&nbsp;&nbsp;  "<<0"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      - back to contents(obsolete with Vim motions in play)<br>
-&nbsp;&nbsp;&nbsp;  "<<[1-10]" &nbsp;&nbsp;- between chapters<br>
+&nbsp;&nbsp;&nbsp;  "<<0"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      - back to contents(obsolete with Vim motions in play)<br>
+&nbsp;&nbsp;&nbsp;  "<<[1-10]" &nbsp;&nbsp;&nbsp;- between chapters<br>
 &nbsp;&nbsp;&nbsp;  "- text"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   - search by description of a command<br>
 &nbsp;&nbsp;&nbsp;  "keyword" &nbsp; - by command-specific keywords<br>
    
