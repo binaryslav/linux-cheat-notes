@@ -24,6 +24,7 @@ Patterns to jump around faster:<br>
    Commands in chapters aren't sorted alphabetically(yet);
    I will cosider investing my time in making it command-line-friendly in the future.
 
+#1 TODO:
 - [ ] sort it alphabetically
 - [ ] work around unix CLI compatability
 
