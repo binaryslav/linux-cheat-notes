@@ -16,9 +16,14 @@
 
 *
 
-     ctr + alt + Fn - open the virtual console number n
-
+     ctr + alt + Fn{N}  - open the virtual terminal number {n}
+     sudo chvt 2        - change to a virtual terminal 2(tty2)
 * 
+
+
+      w - list all terminals (pseudo terminals && ttys)
+
+*
 
      stty - changes and prints terminal line settings (for the control sequences)
      stty -a  - prints all
@@ -1386,6 +1391,7 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 *
 
      pkill -f processName  - kill a process without specifying its PID
+     pkill -9 -t pts/2     - kill a pseudo terminal number 2
 
      pkill SIGTERM processName  --> send SIGTERM to a process
 
