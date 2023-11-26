@@ -1034,6 +1034,9 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
      cp -a ./dir1 ./dir2 - copy dir1 into dir2 
      cp -R ./dir1 ./dir2 - copy all subdirectories and files of dir1 into dir2
 
+     cp [OPTIONS] -t /DIR /SRC
+         -i             -  for interactive
+
 *
      mv -t /dir file1 file2 file3 - move multiple files to a TARGET destination
 
@@ -1072,9 +1075,9 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
      find . -type f -exec ls -s {} \; | sort -n | head -5    - find top 5 small files
 
-     find . -maxdepth 3 -empty -not -name ".*" - lists only NOT hidden empty files in next 3 levels from ./
+     find . -maxdepth 3 -empty -not -name           .*" - lists only NOT hidden empty files in next 3 levels from ./
 
-     find -maxdepth 4 -not -iname "NAME" - invert matching results 
+     find -maxdepth 4 -not -iname           NAME" - invert matching results 
 
      find -maxdepth 2 -iname NameOfFile  - will control the serch depth
 
