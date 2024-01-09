@@ -13,6 +13,16 @@
 <<10>> Other
 
 ## <<1>> TTY
+*
+
+  // Shell globals:
+
+      echo $XDG_SESSION_TYPE  - show currently running Window Manager(if up and running)
+      echo $SHELL             - show default shell
+
+*
+
+      sudo chsh $(which zsh)  - change the default login shell to '/usr/bin/zsh'
 
 *
 
@@ -529,6 +539,12 @@ Handling Cache and used space:
 *
 
 ## <<3>> USERS, GROUPS, PERMISSIONS
+
+*
+
+  set permissions for groups and specific users in     /etc/sudoers
+
+    sudo visudo
 
 *
 
@@ -1628,6 +1644,11 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
      wget -c http://www.example.com/file.iso - to download a file from example.com with the ability to stop it anytime you wish and then continue again later
 
 *
+
+     curl URL  - retrieve a homepage of URL
+
+*
+
 
      host google.com  - performs an IP lookup for the domain name 
 
