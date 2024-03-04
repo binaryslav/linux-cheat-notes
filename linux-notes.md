@@ -9,10 +9,15 @@
 <<6>>  File system and disk space, logs
 <<7>>  Processes and memory
 <<8>>  Networking
-<<9>>  Vi + Vim
-<<10>> Other
+<<9>> Other
 
 ## <<1>> TTY
+
+*
+
+  CTRL + E - default acceptance combination in Zsh in addition to the set one
+
+
 *
 
   // Shell globals:
@@ -1672,76 +1677,7 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
      egrep "^(ftp|http|smtp|ssh).*tcp" /etc/services 
 
 
-
-## <<9>> VI + VIM
-
-     https://devhints.io/vim - vim cheatsheet 
-
-     https://devhints.io/vimscript  - integration in automation and scripting using Vim 
-     :/SEARCHPATTERN
-     :help  "object"
-
-### Modes:
- 	: - command mode
-	/ - search forward
-	? - search backward
-	
-
-### Movement:
-	gg - go to the begin of the document
-	G  - go to the end of the document
-	^  - go to the begin of the line
-	$  - go to the end of the line
- 	(  - go to the begin of the sentence
-	)  - go to the end of the sentence
-	h  - cursor left
-	l  - cursor right
-	j  - cursor down
-	k  - cursor up
-	w  - advance a single word
-	b  - go back a single word
-	
-### Actions:
-	x - delete the character after the cursor position
-     w - hop one word forward
-     b - hop one word backword
-	dw - delete an entire word
-	dd - delete an entire line
-	r - replace a single character
-     	u - undone one action
-	U - undone all actions to the last checkpoint
-     	i - insert
-     	o - open(new line + insert)
-	O - open a line above for adding text
-        a - append
-    	c - change(for example "c)" - change all words till the begin of the current line or another example of usage: "c5w" - means change the last 5 words )
-	d - delete a character
-	y - yank(similar to copying)
-     3yy - yank three lines down
-     3yw - yank 3 words ahead
-	yy - yank an entire line(including a newline character)
-     yiw - yank the current word (the cursor is at)
-	yw - yank an entire word
-     y^ - yank to the beginning of the current line
-	y$ - yank to the end of the current line
-	p - put data from clipboard
-	. - means the current line(where the cursor is now)	
-	% - the whole document
-
-
-     :w(rite) ./File_name
-     :wq(write +quit
-     Esc
-     "Ctrl + C" = terminate  a current working command
-
-     _________#some examples of usage:
-     :s/\.$/.../ - means changing of the s(ubstitute) to value after "/" thus all symbols "." in current line are going to be replaced to "..."
-     :/Eample1/,$d Enter
-
-
-
-
-## <<10>> OTHER
+## <<9>> OTHER
 
      JUST A HINT :  rename kernels I like the most and store them into the specific folder(don't forget to suggest them custom names that will represent date, kernel version and a build source(e.g. community, cannonical or smh else )
 
@@ -1753,4 +1689,4 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 *
      source - evaluate a file or resource as a Tcl script
 
-*
+*   gsettings - a CLI utility to manage GNOME settings
