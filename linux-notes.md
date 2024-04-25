@@ -115,6 +115,10 @@
 
 *
 
+      open - open a file with the default system application
+
+*
+
      test -f (file )/ -d (dir) - to test IF a file is a file or dir 
 
 *
@@ -772,17 +776,36 @@ Handling Cache and used space:
      acpi - shows battery status and other ACPI information 
 
 *
-     dmesg - display all dignostic messages from tty1 into a current treminal which is running from Kernel Linux.
+      dmesg - display all dignostic messages from tty1 into a current treminal which is running from Kernel Linux.
 
 *
 
-     badblocks -s /dev/xda - tests for unreadable blocks on disk
+      badblocks -s /dev/xda - tests for unreadable blocks on disk
 
 *
-     prime-select query - shows which GPU is in use now
+      prime-select query - shows which GPU is in use now
 
-     prime-select intel|nvidia|on-demand  - switch a profile for GPU 
+      prime-select intel|nvidia|on-demand  - switch a profile for GPU 
 
+*
+
+// Disabling touchpad on GNOME differs for X11 and Wayland.
+
+// Wayland:
+
+    gsettings set org.gnome.desktop.peripherals.touchpad send-events disabled
+
+// X11:
+    
+    xinput disable 
+
+*
+
+// restart driver modules for a mouse/touchpad input device
+
+    rmmod psmouse && modprobe psmouse
+
+*
 
 ## <<5>> PACKAGE MANAGERS
 
@@ -794,30 +817,28 @@ Handling Cache and used space:
 
      1) apt
 
-          sudo apt add-apt-repository ppa:graphics-drivers/ppa
+          apt add-apt-repository ppa:graphics-drivers/ppa
                apt policy - to list all ppas in use.
 
-          sudo apt update
+          apt update
 
-          sudo apt-get changelog PACKAGE
+          apt-get changelog PACKAGE
 
-          sudo apt-get download PACKAGE (without installing)
+          apt-get download PACKAGE (without installing)
 
-          sudo apt install pkgName - to upgrade a specific package that is already installed
+          apt install pkgName - to upgrade a specific package that is already installed
 
-          sudo apt-get install packageName --only-upgrade ( do not innstall new packages but upgrade already installed )
+          apt-get install --only-upgrade packageName ( do not innstall new packages but upgrade already installed )
 
-          sudo apt-get install packageName --no-upgrade ( will prevent already installed packgaes from upgrading while installing some new )
+          apt-get install --no-upgrade packageName ( will prevent already installed packgaes from upgrading while installing some new )
 
           sudo apt update ----> sudo apt upgrade ----> sudo apt autoremove -----> 
-
-          sudo apt-get install [a pakage]  
 
           apt list --installed
 
           grep " install " /var/log/apt/history.log - list recently installed packages
 
-          sudo apt list --------->  apt show [a pakage] => get a full information about a pakage.
+          apt list --------->  apt show [a pakage] => get a full information about a pakage.
 
 
           apt-cache policy <pkg>    - shows installed & available versions for <pkg>
@@ -828,7 +849,7 @@ Handling Cache and used space:
 
           apt-cache rdepends --installed packagename - lists dependencies for an installed package (according to a real environment)
 
-          sudo apt search [a pakage/string of pakage]
+          apt search [a pakage/string of pakage]
 
           apt list -a <pkg> to find out what versions are available
 
@@ -1546,8 +1567,6 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 
      ssh - OpenSSH remote login client
 
-
-
 *
      https://www.tecmint.com/nmap-command-examples/
 
@@ -1590,6 +1609,12 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 *
 
      arp 192.168.0.1 - get mac address of IP
+
+*
+
+      nmcli     - cli interface for Network Manager
+
+      nmcli d   - list all network interfaces
 
 *
 
