@@ -1073,25 +1073,29 @@ sudo mount -o remount,rw /media/iarosb/device - remount with Read/Write permissi
 
      cp -a /tmp/dir1 . - copy dir1 and all its content recursively into the working dir(.)
 
-     cp -a ./dir1 ./dir2 - copy dir1 into dir2 
-     cp -R ./dir1 ./dir2 - copy all subdirectories and files of dir1 into dir2
+     cp -a ./dir1 ./dir2    - copy dir1 into dir2 
+     cp -R ./dir1 ./dir2    - copy dir1 with all its subdirectories and files into dir2
+     cp -fR ./src/* ./dest  - replace the content of Dest with Src
 
-     cp [OPTIONS] -t /DIR /SRC
+     cp [OPTIONS] -t /Dest /SRC
          -i             -  for interactive
 
 *
-     mv -t /dir file1 file2 file3 - move multiple files to a TARGET destination
 
-     mv text1.txt text2.txt ------> ls results: text2.txt only existing
-     mv ./Dir1 ./Dir2 - move dir1 into dir2
+      mv $(ls --ignore=file1.png --ignore=dirName ) ./anotherDir
 
-     mv ./string*.jpg ./dir
+      mv -t /dir file1 file2 file3 - move multiple files to a TARGET destination
 
-     mv ./*png ./dir
+      mv text1.txt text2.txt ------> ls results: text2.txt only existing
+      mv ./Dir1 ./Dir2 - move dir1 into dir2
 
-     mv ./*jpg 
+      mv ./string*.jpg ./dir
 
-     mv *.png .. - move to one layer high 
+      mv ./*png ./dir
+
+      mv ./*jpg 
+
+      mv *.png .. - move to one layer high 
 
 *
 
