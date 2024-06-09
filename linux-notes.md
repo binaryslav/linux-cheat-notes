@@ -1608,6 +1608,16 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 
 *
 
+      dhcpcd              - a DHCP client
+      dhcpcd-run-hooks    - DHCP client configuration script
+      dhcpcd.conf         - dhcpcd configuration file
+
+*
+
+       netplan-ip  - retrieve IP information (like DHCP leases) from the system
+
+*
+
      rfkill - tool for enabling and disabling wireless devices 
 
 *
@@ -1693,6 +1703,10 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
      resolvectl status  - DNS resolution info
 
      sudo systemctl restart systemd-resolved.service
+
+*
+
+     dnsmasq - A lightweight DHCP and caching DNS server.
 
 *
 
