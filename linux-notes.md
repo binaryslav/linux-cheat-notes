@@ -838,7 +838,7 @@ Handling Cache and used space:
 
           grep " install " /var/log/apt/history.log - list recently installed packages
 
-          apt list --------->  apt show [a pakage] => get a full information about a pakage.
+          apt list --------->  apt show [package] => get a full information about a package.
 
 
           apt-cache policy <pkg>    - shows installed & available versions for <pkg>
@@ -849,7 +849,7 @@ Handling Cache and used space:
 
           apt-cache rdepends --installed packagename - lists dependencies for an installed package (according to a real environment)
 
-          apt search [a pakage/string of pakage]
+          apt search [package/string of package]
 
           apt list -a <pkg> to find out what versions are available
 
@@ -924,7 +924,6 @@ Handling Cache and used space:
 
           dpkg -i [package.deb] - install a package
 
-          dpkg -r [package] - delete a package
 
 *
 
