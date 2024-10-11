@@ -406,6 +406,8 @@
 
      modinfo - shows information about a Linux Kernel module
 
+     modinfo nvidia | grep version:   - info about the Nvidia's driver in use
+
 *
 
      runlevel - displays current running level of system
@@ -788,6 +790,8 @@ Handling Cache and used space:
       prime-select intel|nvidia|on-demand  - switch a profile for GPU 
 
 *
+
+      
 
 // Disabling touchpad on GNOME differs for X11 and Wayland.
 
