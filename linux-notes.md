@@ -790,7 +790,12 @@ Handling Cache and used space:
       prime-select intel|nvidia|on-demand  - switch a profile for GPU 
 
 *
+  
+     ubuntu-drivers list   - list all available drivers for your desktop system
 
+      ubuntu-drivers install OR install nvidia:550 - install the best match picked automatically for your system OR specify manually
+
+*
       
 
 // Disabling touchpad on GNOME differs for X11 and Wayland.
@@ -1621,17 +1626,27 @@ https://www.fosslinux.com/42935/linux-networking-commands.htm
 
 *
 
-     rfkill - tool for enabling and disabling wireless devices 
-
-*
-
      arp 192.168.0.1 - get mac address of IP
 
 *
 
+    rfkill - tool for enabling and disabling wireless devices 
+    rfkill unblock/block <DEVICENAME>
+    rfkill block bluetooth uwb wimax wwan gps
+
+*
+
       nmcli     - cli interface for Network Manager
+  
+      nmcli c   - list saved connections(Wifi, Ethernet, loopback )
 
       nmcli d   - list all network interfaces
+  
+      nmcli d wifi  - display all currently available Wifi networks
+      
+      nmcli d connect/disconnect <NetworkInterface> - switch between interfaces for establishing a connection(like from wifi to Ethernet and vice versa)
+  
+      nmcli c up/down <SavedWifiConnection> - connect/disconnect to/from a connection
 
 *
 
