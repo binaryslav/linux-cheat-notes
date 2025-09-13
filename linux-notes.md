@@ -248,6 +248,10 @@
 
 *    
 
+    fzf -f PATTERN - non-interactive lookup for PATTERN (grep-like output)
+
+*
+
      tr - Translate, squeeze, and/or delete characters from standard input, writing to standard output.
 
      echo $PATH | tr ":" "\n"  -- separates the output by ":" and prints line by line
